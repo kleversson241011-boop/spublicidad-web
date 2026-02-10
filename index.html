@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tu Negocio | Cuadros en Aluminio</title>
+  <meta name="description" content="Cuadros en placa de aluminio. Diseño personalizado, alta durabilidad y entrega rápida." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">SP</div>
+      <div>
+        <strong>Tu Negocio</strong>
+        <div class="muted">Cuadros en placa de aluminio</div>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#personalizado">Personalizado</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <button class="btn primary" id="btnTopWa">WhatsApp</button>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>Cuadros en aluminio que elevan tu espacio.</h1>
+    <p class="muted">Modernos, resistentes y personalizados. Cierre de venta por WhatsApp.</p>
+
+    <div class="hero-actions">
+      <a class="btn" href="#catalogo">Ver catálogo</a>
+      <a class="btn primary" href="#contacto">Cotizar</a>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <h2>Catálogo</h2>
+    <p class="muted">Precios proporcionales (A4 = $15). Medidas ISO A.</p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>A4 · 210×297</h3>
+        <p class="muted">Ideal para regalos y decoración.</p>
+        <div class="price">$15</div>
+        <button class="btn" data-product="A4 210×297 - $15">Comprar por WhatsApp</button>
+      </article>
+
+      <article class="card">
+        <h3>A3 · 297×420</h3>
+        <p class="muted">Tamaño perfecto para destacar.</p>
+        <div class="price">$30</div>
+        <button class="btn" data-product="A3 297×420 - $30">Comprar por WhatsApp</button>
+      </article>
+
+      <article class="card">
+        <h3>A2 · 420×594</h3>
+        <p class="muted">Balance ideal entre tamaño y precio.</p>
+        <div class="price">$60</div>
+        <button class="btn" data-product="A2 420×594 - $60">Comprar por WhatsApp</button>
+      </article>
+
+      <article class="card">
+        <h3>A1 · 594×841</h3>
+        <p class="muted">Perfecto para oficinas y locales.</p>
+        <div class="price">$120</div>
+        <button class="btn" data-product="A1 594×841 - $120">Comprar por WhatsApp</button>
+      </article>
+
+      <article class="card">
+        <h3>A0 · 841×1189</h3>
+        <p class="muted">Impacto visual máximo.</p>
+        <div class="price">$240</div>
+        <button class="btn" data-product="A0 841×1189 - $240">Comprar por WhatsApp</button>
+      </article>
+
+      <article class="card" id="personalizado">
+        <h3>Personalizado</h3>
+        <p class="muted">Envíanos tu foto/logo y el formato.</p>
+        <div class="price">Según formato</div>
+        <button class="btn primary" data-product="Personalizado - Quiero cotizar">Cotizar por WhatsApp</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p class="muted">Te respondemos por WhatsApp.</p>
+
+    <form id="formCotizar" class="form">
+      <input id="nombre" placeholder="Tu nombre" required />
+      <input id="wa" placeholder="Tu WhatsApp (opcional)" />
+      <textarea id="msg" placeholder="Ej: Quiero un cuadro A2 con mi logo..." required></textarea>
+      <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+    </form>
+  </section>
+</main>
+
+<button class="wa-float" id="waFloat">💬 WhatsApp</button>
+
+<script src="app.js"></script>
+</body>
+</html>

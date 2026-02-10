@@ -1,131 +1,181 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SK PUBLICIDAD | Cuadros en Placa de Aluminio</title>
-  <meta name="description" content="SK PUBLICIDAD: Cuadros en placa de aluminio. Diseños modernos, alta definición y entrega rápida en Quito.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="SK PUBLICIDAD: cuadros en placa de aluminio. Diseño personalizado, alta durabilidad y entrega rápida en Quito." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body id="top">
 
-<!-- HEADER -->
-<header class="header header-v3">
-  <div class="header-inner">
+  <!-- HEADER V3 PRO -->
+  <header class="header header-v3">
+    <div class="header-inner">
 
-    <!-- IZQUIERDA: LOGO GRANDE -->
-    <div class="left">
-      <a href="#top" class="brand" aria-label="Inicio SK Publicidad">
-        <img src="/spublicidad-web/imagenes/logo.png" alt="SK Publicidad" class="logo-img">
-      </a>
+      <!-- IZQUIERDA: LOGO GRANDE -->
+      <div class="left">
+        <a href="#top" class="brand" aria-label="Inicio SK Publicidad">
+          <!-- ✅ Ruta correcta para GitHub Pages: /NOMBRE-REPO/carpeta/archivo -->
+          <img src="/spublicidad-web/imagenes/logo.png" alt="SK Publicidad" class="logo-img">
+        </a>
+      </div>
+
+      <!-- CENTRO: BOTONES -->
+      <nav class="center-nav" aria-label="Navegación">
+        <a class="nav-pill" href="#catalogo">Catálogo</a>
+        <a class="nav-pill" href="#personalizado">Personalizado</a>
+        <a class="nav-pill" href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- DERECHA: WHATSAPP + NÚMERO -->
+      <div class="right">
+        <button class="btn-whatsapp" id="btnTopWa" type="button">WhatsApp</button>
+        <div class="phone">📞 99 800 6243</div>
+      </div>
+
     </div>
+  </header>
 
-    <!-- CENTRO: BOTONES -->
-    <nav class="center-nav" aria-label="Navegación">
-      <a class="nav-pill" href="#catalogo">Catálogo</a>
-      <a class="nav-pill" href="#personalizado">Personalizado</a>
-      <a class="nav-pill" href="#contacto">Contacto</a>
-    </nav>
+  <main>
 
-    <!-- DERECHA: WHATSAPP + NÚMERO -->
-    <div class="right">
-      <button class="btn-whatsapp" id="btnTopWa" type="button">WhatsApp</button>
-      <div class="phone">📞 99 800 6243</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="badge">✨ Acabado premium · Durabilidad · Personalización</div>
+
+        <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
+
+        <p class="hero-sub">
+          <strong>SK PUBLICIDAD</strong>: Diseños modernos, impresión en alta definición y entrega rápida en Quito.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#catalogo">Ver catálogo</a>
+          <a class="btn primary" href="#contacto">Cotizar</a>
+        </div>
+
+        <div class="hero-benefits">
+          <div class="benefit">Alta resistencia <span>Placa duradera y elegante</span></div>
+          <div class="benefit">Colores vivos <span>Impresión nítida y moderna</span></div>
+          <div class="benefit">Entrega en Quito <span>Coordinamos envío/entrega</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <h2 class="h2">Catálogo</h2>
+        <p class="muted">Selecciona un formato y compra/cotiza directo por WhatsApp.</p>
+
+        <div class="grid">
+          <article class="card">
+            <h3>A0 · 841 × 594</h3>
+            <p class="muted">Impacto visual (locales / salas)</p>
+            <p class="price">$ 240</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A0 (841×594) - $240">Comprar por WhatsApp</button>
+          </article>
+
+          <article class="card">
+            <h3>A1 · 594 × 841</h3>
+            <p class="muted">Oficinas y decoración moderna</p>
+            <p class="price">$ 120</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A1 (594×841) - $120">Comprar por WhatsApp</button>
+          </article>
+
+          <article class="card">
+            <h3>A2 · 420 × 594</h3>
+            <p class="muted">Balance ideal tamaño/precio</p>
+            <p class="price">$ 60</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A2 (420×594) - $60">Comprar por WhatsApp</button>
+          </article>
+
+          <article class="card">
+            <h3>A3 · 297 × 420</h3>
+            <p class="muted">Regalos o decoración</p>
+            <p class="price">$ 30</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A3 (297×420) - $30">Comprar por WhatsApp</button>
+          </article>
+
+          <article class="card">
+            <h3>A4 · 297 × 210</h3>
+            <p class="muted">Pequeño, moderno y accesible</p>
+            <p class="price">$ 15</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A4 (297×210) - $15">Comprar por WhatsApp</button>
+          </article>
+
+          <article class="card">
+            <h3>Personalizado</h3>
+            <p class="muted">Envíanos tu foto/idea y el formato</p>
+            <p class="price">Según formato</p>
+            <button class="btn buy" data-product="Cuadro personalizado en aluminio - Quiero cotizar (indico formato y diseño)">Cotizar por WhatsApp</button>
+          </article>
+        </div>
+
+        <div class="note" style="margin-top:14px;">
+          Los precios corresponden al formato indicado. Para diseño personalizado confirmamos detalles por WhatsApp.
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALIZADO -->
+    <section id="personalizado" class="section">
+      <div class="container">
+        <h2 class="h2">Personalizado</h2>
+        <p class="muted">Envíanos tu idea (logo/foto), formato y te confirmamos precio y tiempos.</p>
+
+        <div class="steps">
+          <div class="step"><b>1</b><span>Envía tu foto/idea + formato.</span></div>
+          <div class="step"><b>2</b><span>Te enviamos vista previa.</span></div>
+          <div class="step"><b>3</b><span>Aprobación + producción.</span></div>
+          <div class="step"><b>4</b><span>Entrega en Quito / envío.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <div class="container">
+        <h2 class="h2">Contacto</h2>
+        <p class="muted">Escríbenos y cuéntanos qué formato necesitas. Te respondemos por WhatsApp.</p>
+
+        <div class="contact-grid">
+          <div class="panel">
+            <h3>Datos</h3>
+            <p class="muted">
+              <b>SK PUBLICIDAD</b><br>
+              📍 Quito<br>
+              🕒 Lunes a sábado · 09:00–18:00<br>
+              📞 99 800 6243
+            </p>
+          </div>
+
+          <div class="panel">
+            <h3>Mensaje</h3>
+            <form id="formCotizacion">
+              <input id="nombre" placeholder="Tu nombre" required>
+              <input id="tel" placeholder="Tu WhatsApp (opcional)">
+              <textarea id="msg" placeholder="Ej: quiero un cuadro A2 con mi logo..." required></textarea>
+              <button class="btn primary" type="submit">Enviar por WhatsApp</button>
+              <p class="muted small">Se abrirá WhatsApp con tu mensaje listo.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> SK PUBLICIDAD · Ventas y cotizaciones por WhatsApp
     </div>
+  </footer>
 
-  </div>
-</header>
+  <button class="wa-float" id="waFloat" aria-label="Abrir WhatsApp">💬 WhatsApp</button>
 
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-
-    <span class="badge">✨ Acabado premium · Durabilidad · Personalización</span>
-
-    <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
-
-    <p class="hero-sub">
-      <strong>SK PUBLICIDAD</strong> · Diseños modernos, impresión en alta definición
-      y entrega rápida en Quito.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#catalogo" class="btn">Ver catálogo</a>
-      <a href="#contacto" class="btn primary">Cotizar</a>
-    </div>
-
-    <div class="hero-benefits">
-      <div class="benefit">Alta resistencia<br><span>Placa duradera y elegante</span></div>
-      <div class="benefit">Colores vivos<br><span>Impresión nítida y moderna</span></div>
-      <div class="benefit">Entrega en Quito<br><span>Coordinamos envío/entrega</span></div>
-    </div>
-
-  </div>
-</section>
-
-<main class="container">
-
-  <!-- CATALOGO -->
-  <section id="catalogo" class="section">
-    <h2>Catálogo por formato</h2>
-    <p class="muted">Precios proporcionales (A4 = $15)</p>
-
-    <div class="grid">
-      <div class="card"><h3>A4 · 210×297</h3><p class="price">$15</p></div>
-      <div class="card"><h3>A3 · 297×420</h3><p class="price">$30</p></div>
-      <div class="card"><h3>A2 · 420×594</h3><p class="price">$60</p></div>
-      <div class="card"><h3>A1 · 594×841</h3><p class="price">$120</p></div>
-      <div class="card"><h3>A0 · 841×1189</h3><p class="price">$240</p></div>
-      <div class="card"><h3>Personalizado</h3><p class="price">Cotiza tu diseño</p></div>
-    </div>
-  </section>
-
-  <!-- PERSONALIZADO -->
-  <section id="personalizado" class="section">
-    <h2>Personalizado</h2>
-    <p class="muted">Envíanos tu idea, foto o logo y te damos una propuesta rápida.</p>
-    <div class="note">
-      Escríbenos por WhatsApp con el formato (A0–A4) + tu imagen/logo y el mensaje que deseas.
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="section">
-    <h2>Contacto</h2>
-    <p class="muted">Te respondemos por WhatsApp.</p>
-    <div class="note">
-      Horario: Lunes a Sábado 09:00–18:00 · Quito
-    </div>
-  </section>
-
-</main>
-
-<!-- WhatsApp flotante -->
-<button class="wa-float" id="waFloat">💬 WhatsApp</button>
-
-<script>
-  // Cambia el número (sin +, sin espacios)
-  const WHATSAPP_NUMBER = "593998006243";
-
-  function openWhatsApp(message){
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  }
-
-  document.getElementById("btnTopWa").addEventListener("click", ()=>{
-    openWhatsApp("Hola, quiero información de cuadros en placa de aluminio de SK PUBLICIDAD.");
-  });
-
-  document.getElementById("waFloat").addEventListener("click", ()=>{
-    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio en SK PUBLICIDAD.");
-  });
-</script>
-
+  <script src="app.js"></script>
 </body>
 </html>
-
-
-
-

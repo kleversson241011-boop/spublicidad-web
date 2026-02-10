@@ -9,19 +9,24 @@
 }
 
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg,var(--bg),#070b16);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 500px at 20% -10%, rgba(124,92,255,.25), transparent 60%),
+    radial-gradient(900px 450px at 90% 0%, rgba(77,214,255,.18), transparent 55%),
+    linear-gradient(180deg,var(--bg),#070b16);
   color:var(--text);
 }
 
 a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 16px}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+.muted{color:var(--muted);font-weight:650}
+.h2{margin:0 0 10px;font-size:22px}
 
-/* ===== HEADER V2 (PRO) ===== */
-/* ===== HEADER V3: Logo grande + botones al centro, sin buscador ===== */
+/* ===== HEADER V3 PRO ===== */
 .header-v3{
   position: sticky;
   top: 0;
@@ -34,37 +39,49 @@ a{color:inherit;text-decoration:none}
 .header-v3 .header-inner{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 18px;
+
+  /* altura controlada para que no se vuelva gigante */
+  height: 110px;
+  padding: 10px 18px;
 
   display: grid;
-  grid-template-columns: 320px 1fr 220px; /* izquierda / centro / derecha */
+  grid-template-columns: 340px 1fr 240px;
   align-items: center;
   gap: 18px;
 }
 
-/* IZQUIERDA */
 .header-v3 .left{
   display:flex;
   align-items:center;
+  height: 100%;
 }
 
-/* ✅ LOGO MUCHO MÁS GRANDE */
+.header-v3 .brand{
+  display:flex;
+  align-items:center;
+  height: 100%;
+}
+
+/* ✅ Logo grande (160px) sin header gigante */
 .header-v3 .logo-img{
-  height: 140px;   /* sube a 150px si quieres MÁS */
+  height: 160px;
   width: auto;
   display:block;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.45));
+
+  /* lo sube un poco para que se vea grande sin empujar el header */
+  transform: translateY(12px);
+
+  filter: drop-shadow(0 12px 24px rgba(0,0,0,.45));
 }
 
-/* CENTRO: botones en el centro */
+/* Menú centrado con animación suave */
 .header-v3 .center-nav{
   display:flex;
-  justify-content: center;
+  justify-content:center;
   align-items:center;
   gap: 14px;
 }
 
-/* Botones tipo “pill” */
 .header-v3 .nav-pill{
   padding: 12px 16px;
   border-radius: 14px;
@@ -73,14 +90,22 @@ a{color:inherit;text-decoration:none}
   color: rgba(236,242,255,.92);
   font-weight: 850;
   letter-spacing: .2px;
+
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
 }
 
 .header-v3 .nav-pill:hover{
   background: rgba(255,255,255,.10);
+  box-shadow: 0 10px 22px rgba(0,0,0,.22);
+  transform: translateY(-2px);
   color: #fff;
 }
 
-/* DERECHA */
+.header-v3 .nav-pill:active{
+  transform: translateY(0);
+}
+
+/* Derecha */
 .header-v3 .right{
   display:flex;
   flex-direction: column;
@@ -88,15 +113,38 @@ a{color:inherit;text-decoration:none}
   gap: 10px;
 }
 
+/* ✅ WhatsApp con ícono + hover premium */
 .header-v3 .btn-whatsapp{
   border: none;
-  padding: 11px 18px;
-  border-radius: 20px;
+  padding: 12px 18px;
+  border-radius: 22px;
   background: linear-gradient(135deg,#5aa9ff,#7b6cff);
   color: #fff;
-  font-weight: 900;
+  font-weight: 950;
   cursor: pointer;
   box-shadow: 0 10px 22px rgba(0,0,0,.25);
+
+  display:flex;
+  align-items:center;
+  gap: 10px;
+
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.header-v3 .btn-whatsapp::before{
+  content: "💬";
+  font-size: 16px;
+  line-height: 1;
+}
+
+.header-v3 .btn-whatsapp:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.35);
+  filter: brightness(1.05);
+}
+
+.header-v3 .btn-whatsapp:active{
+  transform: translateY(0);
 }
 
 .header-v3 .phone{
@@ -109,73 +157,14 @@ a{color:inherit;text-decoration:none}
   border-radius: 12px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 980px){
-  .header-v3 .header-inner{
-    grid-template-columns: 1fr;
-    text-align:center;
-  }
-
-  .header-v3 .left{
-    justify-content:center;
-  }
-
-  .header-v3 .center-nav{
-    justify-content:center;
-    flex-wrap: wrap;
-  }
-
-  .header-v3 .right{
-    align-items:center;
-  }
-
-  .header-v3 .logo-img{
-    height: 110px;
-  }
-}
-
-
-/* Menú pegado al logo (no centrado en toda la pantalla) */
-.menu{
-  display:flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.menu a{
-  color: var(--muted);
-  font-weight: 700;
-  padding: 8px 10px;
-  border-radius: 12px;
-}
-
-.menu a:hover{
-  background: rgba(255,255,255,.06);
-  color: var(--text);
-}
-
-/* WhatsApp a la derecha */
-.btn-whatsapp{
-  margin-left:auto; /* CLAVE para empujar a la derecha */
-  border:none;
-  padding:10px 18px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #5aa9ff, #7b6cff);
-  color:#fff;
-  font-weight:900;
-  cursor:pointer;
-  box-shadow: 0 10px 22px rgba(0,0,0,.25);
-}
-.btn-whatsapp:hover{opacity:.95}
-
 /* ===== HERO ===== */
 .hero{
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 40%),
-    linear-gradient(135deg,#2b6cff,#7b3fe4);
   margin:18px;
   border-radius:22px;
   border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255,255,255,.18), transparent 40%),
+    linear-gradient(135deg,#2b6cff,#7b3fe4);
 }
 
 .hero-inner{
@@ -195,6 +184,7 @@ a{color:inherit;text-decoration:none}
 .hero h1{
   margin:16px 0 10px;
   font-size:clamp(30px,4vw,46px);
+  line-height:1.05;
 }
 
 .hero-sub{
@@ -219,6 +209,7 @@ a{color:inherit;text-decoration:none}
   background:rgba(255,255,255,.08);
   color:var(--text);
   font-weight:900;
+  cursor:pointer;
 }
 
 .btn.primary{
@@ -249,7 +240,6 @@ a{color:inherit;text-decoration:none}
 
 /* ===== SECCIONES ===== */
 .section{padding: 26px 0}
-.muted{color:var(--muted); font-weight:650}
 
 .grid{
   display:grid;
@@ -263,11 +253,11 @@ a{color:inherit;text-decoration:none}
   border:1px solid var(--line);
   border-radius:var(--radius);
   padding:16px;
-  text-align:center;
 }
 
 .card h3{margin:0 0 8px}
-.price{font-weight:900; margin:0}
+.price{font-weight:900;margin:10px 0 12px}
+.buy{width:100%}
 
 .note{
   border:1px solid rgba(255,255,255,.15);
@@ -276,6 +266,72 @@ a{color:inherit;text-decoration:none}
   padding: 12px;
   color: var(--muted);
   font-weight:650;
+}
+
+/* ===== PASOS ===== */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+.step{
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 14px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.step b{
+  width:28px;height:28px;border-radius:10px;
+  display:grid;place-items:center;
+  background: rgba(77,214,255,.14);
+  border:1px solid rgba(77,214,255,.28);
+}
+
+.step span{color:var(--muted);font-weight:650}
+
+/* ===== CONTACTO ===== */
+.contact-grid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.panel{
+  background:rgba(16,26,51,.65);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.panel h3{margin:0 0 10px}
+
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(7,11,22,.35);
+  color: var(--text);
+  outline:none;
+  font-weight:650;
+}
+
+textarea{min-height:120px;resize:vertical}
+
+.small{font-size:12px;margin:10px 0 0}
+
+/* ===== FOOTER ===== */
+.footer{
+  border-top:1px solid rgba(255,255,255,.12);
+  padding: 18px 0 30px;
+  color: rgba(159,176,208,.95);
 }
 
 /* ===== WhatsApp flotante ===== */
@@ -297,27 +353,26 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){
   .grid{grid-template-columns:1fr 1fr}
   .hero-benefits{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
 
-  /* Reduce logo en tablet */
-  .logo-img{height: 120px;}
-  .brand-name{font-size: 17px;}
-  .brand-slogan{font-size: 13px;}
+  .header-v3 .header-inner{
+    height: auto;
+    grid-template-columns: 1fr;
+    text-align:center;
+    padding: 14px 18px;
+  }
+  .header-v3 .left{justify-content:center}
+  .header-v3 .center-nav{justify-content:center;flex-wrap:wrap}
+  .header-v3 .right{align-items:center}
+
+  .header-v3 .logo-img{
+    height: 120px;
+    transform: translateY(0);
+  }
 }
 
 @media(max-width:560px){
-  /* En móvil: escondemos slogan y menú para que no se rompa */
-  .brand-slogan{display:none}
-  .menu{display:none}
   .grid{grid-template-columns:1fr}
-
-  /* Reduce logo en móvil */
-  .logo-img{height: 90px;}
-  .brand-name{font-size: 16px;}
+  .steps{grid-template-columns:1fr}
 }
-
-
-
-
-
-
-

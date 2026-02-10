@@ -47,9 +47,14 @@ a{text-decoration:none;color:inherit}
 }
 
 .logo-img{
-  height:54px;
-  width:auto;
-  flex-shrink:0;
+  height: 80px;     /* súbelo a 80px si lo quieres más grande */
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); /* se ve más “premium” */
+}
+.nav{
+  padding: 14px 0;
 }
 
 .brand-text{
@@ -203,3 +208,4 @@ a{text-decoration:none;color:inherit}
   .brand-slogan{display:none}
   .grid{grid-template-columns:1fr}
 }
+

@@ -14,24 +14,28 @@
 <header class="header">
   <div class="container nav">
 
-    <!-- LOGO + TEXTO -->
-    <a href="#" class="brand">
-      <img src="/spublicidad-web/imagenes/logo.png" alt="SK Publicidad" class="logo-img">
+    <!-- IZQUIERDA: LOGO + TEXTO -->
+    <a href="#" class="brand" aria-label="Inicio SK Publicidad">
+      <img
+        src="/spublicidad-web/imagenes/logo_transparente.png"
+        alt="SK Publicidad"
+        class="logo-img"
+      >
       <div class="brand-text">
-        <span class="brand-name">SK PUBLICIDAD</span>
-        <span class="brand-slogan">Marcando un Recuerdo Inolvidable</span>
+        <div class="brand-name">SK PUBLICIDAD</div>
+        <div class="brand-slogan">Marcando un Recuerdo Inolvidable</div>
       </div>
     </a>
 
-    <!-- MENU -->
-    <nav class="menu">
+    <!-- MENU (queda pegado al logo, NO centrado en todo el ancho) -->
+    <nav class="menu" aria-label="Menú principal">
       <a href="#catalogo">Catálogo</a>
       <a href="#personalizado">Personalizado</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- CTA -->
-    <button class="btn primary" id="btnTopWa">WhatsApp</button>
+    <!-- WHATSAPP A LA DERECHA -->
+    <button class="btn-whatsapp" id="btnTopWa">WhatsApp</button>
 
   </div>
 </header>
@@ -63,39 +67,63 @@
   </div>
 </section>
 
-<!-- CATALOGO -->
 <main class="container">
-<section id="catalogo">
-  <h2>Catálogo por formato</h2>
-  <p class="muted">Precios proporcionales (A4 = $15)</p>
 
-  <div class="grid">
-    <div class="card"><h3>A4 · 210×297</h3><p>$15</p></div>
-    <div class="card"><h3>A3 · 297×420</h3><p>$30</p></div>
-    <div class="card"><h3>A2 · 420×594</h3><p>$60</p></div>
-    <div class="card"><h3>A1 · 594×841</h3><p>$120</p></div>
-    <div class="card"><h3>A0 · 841×1189</h3><p>$240</p></div>
-    <div class="card" id="personalizado"><h3>Personalizado</h3><p>Cotiza tu diseño</p></div>
-  </div>
-</section>
+  <!-- CATALOGO -->
+  <section id="catalogo" class="section">
+    <h2>Catálogo por formato</h2>
+    <p class="muted">Precios proporcionales (A4 = $15)</p>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <h2>Contacto</h2>
-  <p class="muted">Escríbenos por WhatsApp y cotiza tu cuadro.</p>
-</section>
+    <div class="grid">
+      <div class="card"><h3>A4 · 210×297</h3><p class="price">$15</p></div>
+      <div class="card"><h3>A3 · 297×420</h3><p class="price">$30</p></div>
+      <div class="card"><h3>A2 · 420×594</h3><p class="price">$60</p></div>
+      <div class="card"><h3>A1 · 594×841</h3><p class="price">$120</p></div>
+      <div class="card"><h3>A0 · 841×1189</h3><p class="price">$240</p></div>
+      <div class="card"><h3>Personalizado</h3><p class="price">Cotiza tu diseño</p></div>
+    </div>
+  </section>
+
+  <!-- PERSONALIZADO -->
+  <section id="personalizado" class="section">
+    <h2>Personalizado</h2>
+    <p class="muted">Envíanos tu idea, foto o logo y te damos una propuesta rápida.</p>
+    <div class="note">
+      Escríbenos por WhatsApp con el formato (A0–A4) + tu imagen/logo y el mensaje que deseas.
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p class="muted">Te respondemos por WhatsApp.</p>
+    <div class="note">
+      Horario: Lunes a Sábado 09:00–18:00 · Quito
+    </div>
+  </section>
+
 </main>
 
+<!-- WhatsApp flotante -->
 <button class="wa-float" id="waFloat">💬 WhatsApp</button>
 
-<script src="app.js"></script>
+<script>
+  // Cambia el número (sin +, sin espacios)
+  const WHATSAPP_NUMBER = "593998006243";
+
+  function openWhatsApp(message){
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+
+  document.getElementById("btnTopWa").addEventListener("click", ()=>{
+    openWhatsApp("Hola, quiero información de cuadros en placa de aluminio de SK PUBLICIDAD.");
+  });
+
+  document.getElementById("waFloat").addEventListener("click", ()=>{
+    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio en SK PUBLICIDAD.");
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-

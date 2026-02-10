@@ -21,71 +21,174 @@ a{color:inherit;text-decoration:none}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
 /* ===== HEADER ===== */
+/* ===== HEADER NUEVO (3 ZONAS) ===== */
 .header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background: rgba(7,11,22,.88);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(7,11,22,.90);
   backdrop-filter: blur(10px);
-  border-bottom:1px solid var(--line);
+  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
-.nav{
-  max-width: 1200px;
-  margin: 0 auto;
-  display:flex;
-  align-items:center;
-  gap: 28px;
-  padding: 18px 20px; /* + aire para el logo grande */
+.header-wrap{
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 12px 14px;
 }
 
-/* Brand: Logo (imagen) + texto al lado */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  flex-shrink:0;
+/* IZQUIERDA pegado al borde */
+.left-stack{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 6px;  /* “desde el inicio” */
 }
 
-/* ✅ SOLO se agranda la imagen del logo */
+/* SOLO LOGO */
+.brand{ display: inline-block; }
 .logo-img{
-  height: 180px; /* recomendado: 150–170 en escritorio */
+  height: 88px;          /* sube a 95px si quieres */
   width: auto;
-  display:block;
-  flex-shrink:0;
+  display: block;
   filter: drop-shadow(0 10px 22px rgba(0,0,0,.45));
 }
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.1;
-  min-width: 0;
+/* Menú vertical debajo del logo */
+.side-nav{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.brand-name{
-  font-weight: 900;
-  letter-spacing: .2px;
-  font-size: 19px;  /* + legible */
-  color: #fff;
-  white-space: nowrap;
+.nav-link{
+  color: rgba(236,242,255,.88);
+  font-weight: 800;
+  padding: 8px 10px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
 }
 
-.brand-slogan{
-  font-size: 14px;
-  color: #ffffff;
-  background: rgba(255,255,255,.10); /* un poco más visible */
-  padding: 3px 10px;                 /* más aire */
-  border-radius: 10px;               /* más suave */
-  margin-top: 4px;
+.nav-link:hover{
+  background: rgba(255,255,255,.08);
+}
+
+/* Dropdown Catálogo (hover) */
+.dropdown{
+  position: relative;
   display: inline-block;
-  letter-spacing: .3px;
-  text-shadow: 0 1px 4px rgba(0,0,0,.6);
 }
 
-.brand-text{
-  padding-left: 6px;
+.dropdown-menu{
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 8px);
+  min-width: 220px;
+  background: rgba(16,26,51,.95);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
 }
+
+.dropdown:hover .dropdown-menu{
+  display: block;
+}
+
+.dd-item{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: rgba(236,242,255,.92);
+  font-weight: 750;
+}
+
+.dd-item:hover{
+  background: rgba(255,255,255,.08);
+}
+
+/* CENTRO */
+.center-area{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+}
+
+.search-box input{
+  width: min(520px, 100%);
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(7,11,22,.35);
+  color: #ecf2ff;
+  outline: none;
+  font-weight: 650;
+}
+
+.center-hint{
+  font-size: 12px;
+  color: rgba(159,176,208,.85);
+  font-weight: 650;
+}
+
+/* DERECHA */
+.right-contact{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 10px;
+  padding-right: 6px;
+}
+
+.btn-whatsapp{
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg,#5aa9ff,#7b6cff);
+  color: #fff;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+}
+
+.phone{
+  font-weight: 900;
+  color: rgba(236,242,255,.90);
+  font-size: 13px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .header-wrap{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .right-contact{
+    align-items: flex-start;
+  }
+  .center-area{
+    padding-top: 0;
+  }
+  .dropdown-menu{
+    position: static;
+    display: block; /* en móvil se ve como lista */
+    margin-top: 8px;
+  }
+}
+
 
 
 /* Menú pegado al logo (no centrado en toda la pantalla) */
@@ -267,6 +370,7 @@ a{color:inherit;text-decoration:none}
   .logo-img{height: 90px;}
   .brand-name{font-size: 16px;}
 }
+
 
 
 

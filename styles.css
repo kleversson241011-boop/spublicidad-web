@@ -49,7 +49,7 @@ a{color:inherit;text-decoration:none}
 
 /* ✅ SOLO se agranda la imagen del logo */
 .logo-img{
-  height: 160px; /* recomendado: 150–170 en escritorio */
+  height: 180px; /* recomendado: 150–170 en escritorio */
   width: auto;
   display:block;
   flex-shrink:0;
@@ -259,3 +259,4 @@ a{color:inherit;text-decoration:none}
   .logo-img{height: 90px;}
   .brand-name{font-size: 16px;}
 }
+

@@ -21,88 +21,95 @@ body{
 a{text-decoration:none;color:inherit}
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header{
   position:sticky;
   top:0;
   z-index:100;
-  background:rgba(7,11,22,.85);
-  backdrop-filter:blur(10px);
+  background: rgba(7,11,22,.85);
+  backdrop-filter: blur(10px);
   border-bottom:1px solid var(--line);
 }
 
 .nav{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:12px 0;
+  gap:28px;
+  padding:14px 0;
 }
 
+/* Brand (logo a la izquierda + textos al lado) */
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
-  min-width:0;
+  gap:14px;
+  min-width: 0;
 }
 
 .logo-img{
-  height: 150px;     /* súbelo a 80px si lo quieres más grande */
+  height: 110px;  /* ajusta: 90 / 110 / 130 */
   width: auto;
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); /* se ve más “premium” */
-}
-.nav{
-  padding: 14px 0;
+  display:block;
+  flex-shrink:0;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
 }
 
 .brand-text{
   display:flex;
   flex-direction:column;
   line-height:1.1;
+  min-width: 0;
 }
 
 .brand-name{
   font-weight:900;
-  white-space:nowrap;
+  letter-spacing:.2px;
+  font-size: 16px;
+  white-space: nowrap;
 }
 
 .brand-slogan{
-  font-size:12.5px;
-  color:var(--muted);
-  white-space:nowrap;
+  font-size: 12.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
 }
 
-/* MENU */
+/* Menu pegado al logo (no centrado en toda la pantalla) */
 .menu{
   display:flex;
-  gap:14px;
+  gap:18px;
+  flex-wrap:wrap;
 }
 
 .menu a{
-  color:var(--muted);
-  font-weight:700;
-}
-
-.menu a:hover{color:var(--text)}
-
-/* BUTTONS */
-.btn{
-  padding:10px 16px;
-  border-radius:14px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.06);
-  color:var(--text);
+  color: var(--muted);
   font-weight:800;
+  padding: 8px 10px;
+  border-radius: 12px;
 }
 
-.btn.primary{
+.menu a:hover{
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+}
+
+/* WhatsApp a la derecha */
+.btn-whatsapp{
+  margin-left:auto;
   border:none;
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  padding:10px 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #5aa9ff, #7b6cff);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
 }
 
-/* HERO */
+.btn-whatsapp:hover{opacity:.95}
+
+/* ===== HERO ===== */
 .hero{
   background:
     radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 40%),
@@ -143,6 +150,21 @@ a{text-decoration:none;color:inherit}
   display:flex;
   justify-content:center;
   gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:10px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+  color:var(--text);
+  font-weight:900;
+}
+
+.btn.primary{
+  border:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
 }
 
 .hero-benefits{
@@ -156,17 +178,20 @@ a{text-decoration:none;color:inherit}
   background:rgba(0,0,0,.18);
   border-radius:16px;
   padding:12px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .benefit span{
   display:block;
   font-size:12px;
-  font-weight:600;
+  font-weight:650;
   opacity:.9;
 }
 
-/* GRID */
+/* ===== SECTIONS ===== */
+.section{padding: 26px 0}
+.muted{color:var(--muted); font-weight:650}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -182,9 +207,19 @@ a{text-decoration:none;color:inherit}
   text-align:center;
 }
 
-.muted{color:var(--muted)}
+.card h3{margin:0 0 8px}
+.price{font-weight:900; margin:0}
 
-/* WHATSAPP FLOAT */
+.note{
+  border:1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.04);
+  border-radius: 16px;
+  padding: 12px;
+  color: var(--muted);
+  font-weight:650;
+}
+
+/* ===== WhatsApp flotante ===== */
 .wa-float{
   position:fixed;
   bottom:16px;
@@ -195,21 +230,20 @@ a{text-decoration:none;color:inherit}
   border-radius:999px;
   font-weight:900;
   border:none;
+  cursor:pointer;
+  box-shadow: 0 16px 34px rgba(0,0,0,.35);
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr 1fr}
   .hero-benefits{grid-template-columns:1fr}
+  .logo-img{height: 90px;}
 }
 
 @media(max-width:560px){
-  .menu{display:none}
   .brand-slogan{display:none}
+  .menu{display:none}
   .grid{grid-template-columns:1fr}
+  .logo-img{height: 78px;}
 }
-
-
-
-
-

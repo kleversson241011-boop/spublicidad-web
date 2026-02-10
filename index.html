@@ -1,150 +1,98 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SK PUBLICIDAD | Cuadros en Placa de Aluminio</title>
-  <meta name="description" content="SK PUBLICIDAD: cuadros en placa de aluminio. Diseño personalizado, alta durabilidad y entrega rápida en Quito." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="SK PUBLICIDAD: Cuadros en placa de aluminio. Diseños modernos, alta definición y entrega rápida en Quito.">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header class="header">
   <div class="container nav">
-    <a class="brand" href="#" aria-label="SK Publicidad">
-      <div class="logo">
-        <img src="images/logo.png" alt="SK Publicidad - Marcando un Recuerdo Inolvidable">
-      </div>
 
+    <!-- LOGO + TEXTO -->
+    <a href="#" class="brand">
+      <img src="images/logo.png" alt="SK Publicidad" class="logo-img">
       <div class="brand-text">
-        <strong>SK PUBLICIDAD</strong>
-        <div class="muted">Cuadros en placa de aluminio</div>
+        <span class="brand-name">SK PUBLICIDAD</span>
+        <span class="brand-slogan">Marcando un Recuerdo Inolvidable</span>
       </div>
     </a>
 
-    <nav class="menu" aria-label="Menú">
+    <!-- MENU -->
+    <nav class="menu">
       <a href="#catalogo">Catálogo</a>
       <a href="#personalizado">Personalizado</a>
       <a href="#contacto">Contacto</a>
     </nav>
 
+    <!-- CTA -->
     <button class="btn primary" id="btnTopWa">WhatsApp</button>
+
   </div>
 </header>
 
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <span class="badge">✨ Acabado premium · Durabilidad · Personalización</span>
+
+    <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
+
+    <p class="hero-sub">
+      <strong>SK PUBLICIDAD</strong> · Diseños modernos, impresión en alta definición
+      y entrega rápida en Quito.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn">Ver catálogo</a>
+      <a href="#contacto" class="btn primary">Cotizar</a>
+    </div>
+
+    <div class="hero-benefits">
+      <div class="benefit">Alta resistencia<br><span>Placa duradera y elegante</span></div>
+      <div class="benefit">Colores vivos<br><span>Impresión nítida y moderna</span></div>
+      <div class="benefit">Entrega en Quito<br><span>Coordinamos envío/entrega</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CATALOGO -->
 <main class="container">
+<section id="catalogo">
+  <h2>Catálogo por formato</h2>
+  <p class="muted">Precios proporcionales (A4 = $15)</p>
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Sección principal">
-    <div class="hero-inner">
-      <div class="badge">✨ Acabado premium · Durabilidad · Personalización</div>
+  <div class="grid">
+    <div class="card"><h3>A4 · 210×297</h3><p>$15</p></div>
+    <div class="card"><h3>A3 · 297×420</h3><p>$30</p></div>
+    <div class="card"><h3>A2 · 420×594</h3><p>$60</p></div>
+    <div class="card"><h3>A1 · 594×841</h3><p>$120</p></div>
+    <div class="card"><h3>A0 · 841×1189</h3><p>$240</p></div>
+    <div class="card" id="personalizado"><h3>Personalizado</h3><p>Cotiza tu diseño</p></div>
+  </div>
+</section>
 
-      <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
-      <p class="hero-sub">
-        <strong>SK PUBLICIDAD</strong> · Marcando un Recuerdo Inolvidable. Diseños modernos, alta definición y entrega rápida en Quito.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn" href="#catalogo">Ver catálogo</a>
-        <a class="btn primary" href="#contacto">Cotizar</a>
-      </div>
-
-      <div class="hero-mini" aria-label="Beneficios">
-        <div class="chip">
-          Alta resistencia
-          <span>Placa duradera y elegante</span>
-        </div>
-        <div class="chip">
-          Colores vivos
-          <span>Impresión nítida y moderna</span>
-        </div>
-        <div class="chip">
-          Entrega en Quito
-          <span>Coordinamos envío/entrega</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATALOGO -->
-  <section id="catalogo">
-    <h2>Catálogo por Formato</h2>
-    <p class="muted">Precios proporcionales (A4 = $15). Medidas ISO serie A.</p>
-
-    <div class="grid">
-      <article class="card">
-        <h3>A4 · 210×297</h3>
-        <p class="muted">Pequeño, moderno y accesible.</p>
-        <div class="price">$15</div>
-        <button class="btn" data-product="A4 210×297 - $15">Comprar por WhatsApp</button>
-      </article>
-
-      <article class="card">
-        <h3>A3 · 297×420</h3>
-        <p class="muted">Ideal para regalos y decoración.</p>
-        <div class="price">$30</div>
-        <button class="btn" data-product="A3 297×420 - $30">Comprar por WhatsApp</button>
-      </article>
-
-      <article class="card">
-        <h3>A2 · 420×594</h3>
-        <p class="muted">Balance ideal entre tamaño y precio.</p>
-        <div class="price">$60</div>
-        <button class="btn" data-product="A2 420×594 - $60">Comprar por WhatsApp</button>
-      </article>
-
-      <article class="card">
-        <h3>A1 · 594×841</h3>
-        <p class="muted">Perfecto para oficinas y locales.</p>
-        <div class="price">$120</div>
-        <button class="btn" data-product="A1 594×841 - $120">Comprar por WhatsApp</button>
-      </article>
-
-      <article class="card">
-        <h3>A0 · 841×1189</h3>
-        <p class="muted">Impacto visual máximo.</p>
-        <div class="price">$240</div>
-        <button class="btn" data-product="A0 841×1189 - $240">Comprar por WhatsApp</button>
-      </article>
-
-      <article class="card" id="personalizado">
-        <h3>Personalizado</h3>
-        <p class="muted">Envíanos tu foto/logo y el formato. Te confirmamos propuesta y precio.</p>
-        <div class="price">Según formato</div>
-        <button class="btn primary" data-product="Personalizado - Quiero cotizar">Cotizar por WhatsApp</button>
-      </article>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <p class="muted">Cuéntanos qué formato necesitas y si es personalizado. Te respondemos por WhatsApp.</p>
-
-    <form id="formCotizar" class="form">
-      <input id="nombre" placeholder="Tu nombre" required />
-      <input id="wa" placeholder="Tu WhatsApp (opcional)" />
-      <textarea id="msg" placeholder="Ej: Quiero un cuadro A2 con mi logo..." required></textarea>
-      <button class="btn primary" type="submit">Enviar por WhatsApp</button>
-      <div class="muted small">Se abrirá WhatsApp con tu mensaje listo.</div>
-    </form>
-  </section>
-
-  <footer class="footer">
-    <div class="muted small">© <span id="year"></span> SK PUBLICIDAD · Ventas y cotizaciones por WhatsApp</div>
-  </footer>
-
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p class="muted">Escríbenos por WhatsApp y cotiza tu cuadro.</p>
+</section>
 </main>
 
-<button class="wa-float" id="waFloat" aria-label="Abrir WhatsApp">💬 WhatsApp</button>
+<button class="wa-float" id="waFloat">💬 WhatsApp</button>
 
 <script src="app.js"></script>
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 </body>
 </html>
+
+
 
 
 

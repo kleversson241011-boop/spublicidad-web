@@ -47,7 +47,7 @@ a{text-decoration:none;color:inherit}
 }
 
 .logo-img{
-  height: 80px;     /* súbelo a 80px si lo quieres más grande */
+  height: 150px;     /* súbelo a 80px si lo quieres más grande */
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -208,4 +208,5 @@ a{text-decoration:none;color:inherit}
   .brand-slogan{display:none}
   .grid{grid-template-columns:1fr}
 }
+
 

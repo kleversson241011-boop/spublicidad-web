@@ -59,7 +59,7 @@ main{
   max-width: 1200px;
   margin: 0 auto;
 
-  height: 170px;            /* ✅ acompaña logo grande */
+  height: 200px;            /* ✅ acompaña logo grande */
   padding: 12px 18px;
 
   display: grid;
@@ -75,22 +75,22 @@ main{
   height: 100%;
 }
 
+/* ✅ Logo más grande (solo el logo) */
+.header-v3 .logo-img{
+  height: 190px;   /* 🔥 más grande y dominante */
+  width:auto;
+  display:block;
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,.45));
+  transition: height .2s ease;
+}
+
 .header-v3 .brand{
   display:flex;
   align-items:center;
-  height: 100%;
-  padding: 6px 10px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-/* ✅ Logo más grande (solo el logo) */
-.header-v3 .logo-img{
-  height: 160px;            /* ✅ más visible */
-  width: auto;
-  display:block;
-  filter: drop-shadow(0 12px 24px rgba(0,0,0,.45));
+  height:100%;
+  padding:0;
+  background:transparent;
+  border:none;
 }
 
 /* CENTRO: Menú centrado */
@@ -431,7 +431,7 @@ textarea{min-height:120px;resize:vertical}
 }
 
 .header-v3.is-scrolled .logo-img{
-  height: 110px;                /* antes 160px */
+  height: 130px;                /* antes 160px */
   transition: height .18s ease;
 }
 
@@ -487,3 +487,4 @@ textarea{min-height:120px;resize:vertical}
   color: #fff;
   transform: translateY(-1px);
 }
+

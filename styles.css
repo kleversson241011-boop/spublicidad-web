@@ -34,8 +34,9 @@ a{color:inherit;text-decoration:none}
 
 /* ✅ IMPORTANTE: para que el sticky header NO tape el contenido */
 main{
-  padding-top: 150px; /* igual o un poco mayor que la altura del header */
+  padding-top: 0; /* lo setea JS con la altura real del header */
 }
+
 
 /* Ajuste para anchors (Catálogo / Personalizado / Contacto) */
 #catalogo, #personalizado, #contacto{
@@ -363,16 +364,6 @@ textarea{min-height:120px;resize:vertical}
   box-shadow: 0 16px 34px rgba(0,0,0,.35);
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr 1fr}
-  .hero-benefits{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr 1fr}
-  .contact-grid{grid-template-columns:1fr}
-
-  /* En móvil: header auto y main padding menor */
-  main{padding-top: 40px;}
-
   .header-v3 .header-inner{
     height: auto;
     grid-template-columns: 1fr;
@@ -396,3 +387,4 @@ textarea{min-height:120px;resize:vertical}
   .grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
 }
+

@@ -72,11 +72,14 @@ function setupHeaderShrink(){
   const onScroll = () => {
     if (window.scrollY > 10) header.classList.add("is-scrolled");
     else header.classList.remove("is-scrolled");
+
+    // ✅ recalcula el padding del main si existe esa función
+    if (typeof adjustMainOffset === "function") adjustMainOffset();
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 }
 
-window.addEventListener("load", setupHeaderShrink);
+
 

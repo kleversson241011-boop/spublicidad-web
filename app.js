@@ -50,3 +50,17 @@ if (form){
 // Año footer
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+
+// ===== Ajuste automático para que el header sticky NO tape el contenido =====
+function adjustMainOffset(){
+  const header = document.querySelector(".header-v3");
+  const main = document.querySelector("main");
+  if (!header || !main) return;
+
+  const h = header.offsetHeight;
+  main.style.paddingTop = (h + 14) + "px"; // 14px extra de seguridad
+}
+
+window.addEventListener("load", adjustMainOffset);
+window.addEventListener("resize", adjustMainOffset);
+

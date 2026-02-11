@@ -476,3 +476,14 @@ textarea{min-height:120px;resize:vertical}
 @media(max-width:900px){
   .header-v3.is-scrolled .logo-img{ height: 95px; }
 }
+
+/* =========================
+   MENÚ ACTIVO (sección actual)
+========================= */
+.header-v3 .nav-pill.is-active{
+  background: rgba(255,255,255,.14);
+  border-color: rgba(77,214,255,.55);
+  box-shadow: 0 12px 26px rgba(77,214,255,.18);
+  color: #fff;
+  transform: translateY(-1px);
+}

@@ -124,6 +124,10 @@ window.addEventListener("load", setupActiveMenu);
 // Ejemplo real tuyo: anime1.jpg
 const CATALOG = {
   "deportes": [],
+   { src: "imagenes/catalogo/anime/messi.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
     // agrega más:
@@ -131,10 +135,30 @@ const CATALOG = {
     // { src: "imagenes/catalogo/anime/anime3.jpg" }
   ],
   "videojuegos": [],
+   { src: "imagenes/catalogo/anime/vid1.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   "marvel-dc": [],
+     { src: "imagenes/catalogo/anime/marvel1.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   "dibujos": [],
+     { src: "imagenes/catalogo/anime/d1.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   "peliculas": [],
+     { src: "imagenes/catalogo/anime/peli1.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   "naturaleza": []
+ { src: "imagenes/catalogo/anime/nat1.png" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
 };
 
 function renderGallery(category){
@@ -211,3 +235,4 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+

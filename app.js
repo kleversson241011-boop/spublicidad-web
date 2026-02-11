@@ -148,7 +148,7 @@ const CATALOG = {
     
   ],
   "marvel-dc": [
-    { src: "imagenes/catalogo/marvel-dc/marvel.png", title: "Marvel/DC 1" }
+    { src: "imagenes/catalogo/marvel-dc/marvel1.png", title: "Marvel/DC 1" }
     
   ],
   "dibujos": [
@@ -233,6 +233,7 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

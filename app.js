@@ -183,7 +183,7 @@ function renderGallery(category){
   if (!items.length){
     gallery.innerHTML = `
       <div class="note" style="grid-column:1/-1;">
-        Aún no hay imágenes en esta categoría. Sube fotos a <b>imagenes/catalogo/${category}/</b> y agrégalas en app.js.
+        Aún no hay imágenes en esta categoría.
       </div>
     `;
     adjustMainOffset();
@@ -235,4 +235,5 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 

@@ -137,30 +137,28 @@ window.addEventListener("load", setupActiveMenu);
 // - Luego agrega cada imagen aquí (src + title)
 const CATALOG = {
   "deportes": [
-    { src: "imagenes/catalogo/deportes/Messi.png", title: "Deportes 1" },
-    { src: "imagenes/catalogo/deportes/2.jpg", title: "Deportes 2" },
-    { src: "imagenes/catalogo/deportes/3.jpg", title: "Deportes 3" },
+    { src: "imagenes/catalogo/deportes/messi.png", title: "Deportes 1" }
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg", title: "Anime 1" }
     
   ],
   "videojuegos": [
-    { src: "imagenes/catalogo/videojuegos/1.jpg", title: "Videojuegos 1" },
-    { src: "imagenes/catalogo/videojuegos/2.jpg", title: "Videojuegos 2" },
+    { src: "imagenes/catalogo/videojuegos/vid1.png", title: "Videojuegos 1" }
+    
   ],
   "marvel-dc": [
-    { src: "imagenes/catalogo/marvel-dc/1.jpg", title: "Marvel/DC 1" },
-    { src: "imagenes/catalogo/marvel-dc/2.jpg", title: "Marvel/DC 2" },
+    { src: "imagenes/catalogo/marvel-dc/marvel.png", title: "Marvel/DC 1" }
+    
   ],
   "dibujos": [
-    { src: "imagenes/catalogo/dibujos/1.jpg", title: "Dibujos 1" },
+    { src: "imagenes/catalogo/dibujos/d1.png", title: "Dibujos 1" }
   ],
   "peliculas": [
-    { src: "imagenes/catalogo/peliculas/1.jpg", title: "Películas 1" },
+    { src: "imagenes/catalogo/peliculas/peli1.png", title: "Películas 1" }
   ],
   "naturaleza": [
-    { src: "imagenes/catalogo/naturaleza/1.jpg", title: "Naturaleza 1" },
+    { src: "imagenes/catalogo/naturaleza/nat1.png", title: "Naturaleza 1" }
   ],
 };
 
@@ -235,5 +233,6 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 

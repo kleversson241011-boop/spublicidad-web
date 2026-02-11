@@ -64,3 +64,19 @@ function adjustMainOffset(){
 window.addEventListener("load", adjustMainOffset);
 window.addEventListener("resize", adjustMainOffset);
 
+// ===== Header "shrink" al hacer scroll (pro) =====
+function setupHeaderShrink(){
+  const header = document.querySelector(".header-v3");
+  if (!header) return;
+
+  const onScroll = () => {
+    if (window.scrollY > 10) header.classList.add("is-scrolled");
+    else header.classList.remove("is-scrolled");
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+window.addEventListener("load", setupHeaderShrink);
+

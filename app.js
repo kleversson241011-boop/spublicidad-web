@@ -143,8 +143,7 @@ const CATALOG = {
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg", title: "Anime 1" },
-    { src: "imagenes/catalogo/anime/2.jpg", title: "Anime 2" },
-    { src: "imagenes/catalogo/anime/3.jpg", title: "Anime 3" },
+    
   ],
   "videojuegos": [
     { src: "imagenes/catalogo/videojuegos/1.jpg", title: "Videojuegos 1" },
@@ -236,3 +235,4 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+

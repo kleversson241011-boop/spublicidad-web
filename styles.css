@@ -418,3 +418,61 @@ textarea{min-height:120px;resize:vertical}
   .grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
 }
+
+/* =========================
+   EFECTOS PRO (scroll + animaciones)
+========================= */
+
+/* 1) Header reduce tamaño al hacer scroll */
+.header-v3.is-scrolled .header-inner{
+  height: 120px;                /* antes 170px */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.header-v3.is-scrolled .logo-img{
+  height: 110px;                /* antes 160px */
+  transition: height .18s ease;
+}
+
+.header-v3 .header-inner,
+.header-v3 .logo-img{
+  transition: height .18s ease, padding .18s ease, transform .18s ease;
+}
+
+/* 2) Hero aparece con animación suave */
+.hero-inner{
+  animation: heroIn .6s ease both;
+}
+
+@keyframes heroIn{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* 3) WhatsApp flotante con pulso elegante */
+.wa-float{
+  position: fixed;
+  isolation: isolate;
+}
+
+.wa-float::after{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:999px;
+  background: rgba(37,211,102,.25);
+  z-index:-1;
+  animation: waPulse 1.8s ease-out infinite;
+}
+
+@keyframes waPulse{
+  0%{ transform: scale(.85); opacity:.65; }
+  60%{ transform: scale(1.15); opacity: 0; }
+  100%{ transform: scale(1.15); opacity: 0; }
+}
+
+/* Ajuste en móvil para shrink */
+@media(max-width:900px){
+  .header-v3.is-scrolled .logo-img{ height: 95px; }
+}

@@ -18,11 +18,11 @@ if (btnTopWa){
 const waFloat = document.getElementById("waFloat");
 if (waFloat){
   waFloat.addEventListener("click", () => {
-    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD).");
+    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD understand).");
   });
 }
 
-// Botones de compra del catálogo
+// Botones de compra del catálogo por tamaño (A0/A1/A2...)
 document.querySelectorAll("button[data-product]").forEach(btn=>{
   btn.addEventListener("click", ()=>{
     const product = btn.getAttribute("data-product");
@@ -51,6 +51,7 @@ if (form){
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
+
 // ===== Ajuste automático para que el header sticky NO tape el contenido =====
 function adjustMainOffset(){
   const header = document.querySelector(".header-v3");
@@ -58,11 +59,12 @@ function adjustMainOffset(){
   if (!header || !main) return;
 
   const h = header.offsetHeight;
-  main.style.paddingTop = (h + 14) + "px"; // 14px extra de seguridad
+  main.style.paddingTop = (h + 14) + "px";
 }
 
 window.addEventListener("load", adjustMainOffset);
 window.addEventListener("resize", adjustMainOffset);
+
 
 // ===== Header "shrink" al hacer scroll (pro) =====
 function setupHeaderShrink(){
@@ -73,13 +75,17 @@ function setupHeaderShrink(){
     if (window.scrollY > 10) header.classList.add("is-scrolled");
     else header.classList.remove("is-scrolled");
 
-    // ✅ recalcula el padding del main si existe esa función
-    if (typeof adjustMainOffset === "function") adjustMainOffset();
+    // ✅ Recalcula el padding del main si existe
+    adjustMainOffset();
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 }
+
+window.addEventListener("load", setupHeaderShrink);
+
+
 // ===== Menú activo según sección visible =====
 function setupActiveMenu(){
   const links = Array.from(document.querySelectorAll(".nav-pill[data-link]"));
@@ -95,14 +101,13 @@ function setupActiveMenu(){
     });
   };
 
-  // Activo al click (respuesta inmediata)
+  // Activo al click
   links.forEach(a => {
     a.addEventListener("click", () => setActive(a.dataset.link));
   });
 
-  // Activo por scroll (IntersectionObserver)
+  // Activo por scroll
   const io = new IntersectionObserver((entries) => {
-    // Elegimos la sección más visible
     const visible = entries
       .filter(e => e.isIntersecting)
       .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -126,5 +131,108 @@ function setupActiveMenu(){
 window.addEventListener("load", setupActiveMenu);
 
 
+// ===== Catálogo por categorías (galería) + pestaña Tamaño =====
+// ✅ IMPORTANTE:
+// - Sube tus fotos a /imagenes/catalogo/<categoria>/
+// - Luego agrega cada imagen aquí (src + title)
+const CATALOG = {
+  "deportes": [
+    { src: "imagenes/catalogo/deportes/Messi.png", title: "Deportes 1" },
+    { src: "imagenes/catalogo/deportes/2.jpg", title: "Deportes 2" },
+    { src: "imagenes/catalogo/deportes/3.jpg", title: "Deportes 3" },
+  ],
+  "anime": [
+    { src: "imagenes/catalogo/anime/anime1.jpg", title: "Anime 1" },
+    { src: "imagenes/catalogo/anime/2.jpg", title: "Anime 2" },
+    { src: "imagenes/catalogo/anime/3.jpg", title: "Anime 3" },
+  ],
+  "videojuegos": [
+    { src: "imagenes/catalogo/videojuegos/1.jpg", title: "Videojuegos 1" },
+    { src: "imagenes/catalogo/videojuegos/2.jpg", title: "Videojuegos 2" },
+  ],
+  "marvel-dc": [
+    { src: "imagenes/catalogo/marvel-dc/1.jpg", title: "Marvel/DC 1" },
+    { src: "imagenes/catalogo/marvel-dc/2.jpg", title: "Marvel/DC 2" },
+  ],
+  "dibujos": [
+    { src: "imagenes/catalogo/dibujos/1.jpg", title: "Dibujos 1" },
+  ],
+  "peliculas": [
+    { src: "imagenes/catalogo/peliculas/1.jpg", title: "Películas 1" },
+  ],
+  "naturaleza": [
+    { src: "imagenes/catalogo/naturaleza/1.jpg", title: "Naturaleza 1" },
+  ],
+};
 
+function renderGallery(category){
+  const gallery = document.getElementById("catGallery");
+  const sizes = document.getElementById("catSizes");
+  if (!gallery || !sizes) return;
 
+  // Si es "tamano", oculto galería y muestro tamaños
+  if (category === "tamano"){
+    gallery.innerHTML = "";
+    gallery.hidden = true;
+    sizes.hidden = false;
+    return;
+  }
+
+  // Caso normal: muestro galería
+  sizes.hidden = true;
+  gallery.hidden = false;
+
+  const items = CATALOG[category] || [];
+  if (!items.length){
+    gallery.innerHTML = `
+      <div class="note" style="grid-column:1/-1;">
+        Aún no hay imágenes en esta categoría. Sube fotos a <b>/imagenes/catalogo/${category}/</b> y agrégalas en app.js.
+      </div>
+    `;
+    return;
+  }
+
+  gallery.innerHTML = items.map((it) => `
+    <article class="cat-item">
+      <img src="${it.src}" alt="${it.title}" loading="lazy">
+      <div class="cat-cap">
+        <b>${it.title}</b>
+        <button class="btn primary" type="button" data-wa="${it.title}">
+          Cotizar
+        </button>
+      </div>
+    </article>
+  `).join("");
+
+  // Botón cotizar por cada imagen
+  gallery.querySelectorAll("button[data-wa]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const title = btn.getAttribute("data-wa");
+      openWhatsApp(
+        `Hola, quiero cotizar un cuadro en placa de aluminio del catálogo: *${category.toUpperCase()}*.\nModelo: *${title}*.\n¿Me confirmas precios por tamaño y tiempos de entrega en Quito?`
+      );
+    });
+  });
+}
+
+function setupCatalogTabs(){
+  const tabs = document.querySelectorAll(".cat-tab[data-tab]");
+  if (!tabs.length) return;
+
+  const setActiveTab = (key) => {
+    tabs.forEach(t => t.classList.toggle("is-active", t.dataset.tab === key));
+    renderGallery(key);
+
+    // ✅ Recalcula por si cambia altura del catálogo
+    adjustMainOffset();
+  };
+
+  tabs.forEach(t => {
+    t.addEventListener("click", () => setActiveTab(t.dataset.tab));
+  });
+
+  // Inicial: Deportes (puedes cambiar a "tamano" si quieres abrir tamaños por defecto)
+  setActiveTab("deportes");
+}
+
+window.addEventListener("load", setupCatalogTabs);

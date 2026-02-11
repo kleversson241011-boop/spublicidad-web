@@ -18,17 +18,20 @@ if (btnTopWa){
 const waFloat = document.getElementById("waFloat");
 if (waFloat){
   waFloat.addEventListener("click", () => {
-    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD understand).");
+    openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD).");
   });
 }
 
 // Botones de compra del catálogo por tamaño (A0/A1/A2...)
-document.querySelectorAll("button[data-product]").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    const product = btn.getAttribute("data-product");
-    openWhatsApp(`Hola, quiero comprar/cotizar: *${product}*.\n¿Me confirmas disponibilidad y forma de entrega en Quito?`);
+function bindSizeButtons(){
+  document.querySelectorAll("button[data-product]").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const product = btn.getAttribute("data-product");
+      openWhatsApp(`Hola, quiero comprar/cotizar: *${product}*.\n¿Me confirmas disponibilidad y forma de entrega en Quito?`);
+    });
   });
-});
+}
+bindSizeButtons();
 
 // Formulario a WhatsApp
 const form = document.getElementById("formCotizacion");
@@ -66,7 +69,7 @@ window.addEventListener("load", adjustMainOffset);
 window.addEventListener("resize", adjustMainOffset);
 
 
-// ===== Header "shrink" al hacer scroll (pro) =====
+// ===== Header shrink al hacer scroll =====
 function setupHeaderShrink(){
   const header = document.querySelector(".header-v3");
   if (!header) return;
@@ -74,8 +77,6 @@ function setupHeaderShrink(){
   const onScroll = () => {
     if (window.scrollY > 10) header.classList.add("is-scrolled");
     else header.classList.remove("is-scrolled");
-
-    // ✅ Recalcula el padding del main si existe
     adjustMainOffset();
   };
 
@@ -96,33 +97,20 @@ function setupActiveMenu(){
   if (!links.length || !sections.length) return;
 
   const setActive = (id) => {
-    links.forEach(a => {
-      a.classList.toggle("is-active", a.dataset.link === id);
-    });
+    links.forEach(a => a.classList.toggle("is-active", a.dataset.link === id));
   };
 
-  // Activo al click
-  links.forEach(a => {
-    a.addEventListener("click", () => setActive(a.dataset.link));
-  });
+  links.forEach(a => a.addEventListener("click", () => setActive(a.dataset.link)));
 
-  // Activo por scroll
   const io = new IntersectionObserver((entries) => {
     const visible = entries
       .filter(e => e.isIntersecting)
       .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-    if (visible && visible.target && visible.target.id) {
-      setActive(visible.target.id);
-    }
-  }, {
-    root: null,
-    threshold: [0.25, 0.4, 0.55],
-  });
+    if (visible?.target?.id) setActive(visible.target.id);
+  }, { threshold: [0.25, 0.4, 0.55] });
 
   sections.forEach(sec => io.observe(sec));
 
-  // Estado inicial
   const hash = (location.hash || "#catalogo").replace("#","");
   if (["catalogo","personalizado","contacto"].includes(hash)) setActive(hash);
   else setActive("catalogo");
@@ -132,34 +120,21 @@ window.addEventListener("load", setupActiveMenu);
 
 
 // ===== Catálogo por categorías (galería) + pestaña Tamaño =====
-// ✅ IMPORTANTE:
-// - Sube tus fotos a /imagenes/catalogo/<categoria>/
-// - Luego agrega cada imagen aquí (src + title)
+// IMPORTANTE: Ajusta aquí los nombres reales de tus archivos.
+// Ejemplo real tuyo: anime1.jpg
 const CATALOG = {
-  "deportes": [
-    { src: "imagenes/catalogo/deportes/messi.png"}
-  ],
+  "deportes": [],
   "anime": [
-    { src: "imagenes/catalogo/anime/anime1.jpg", title: "Anime 1" }
-    
+    { src: "imagenes/catalogo/anime/anime1.jpg" }
+    // agrega más:
+    // { src: "imagenes/catalogo/anime/anime2.jpg" },
+    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   ],
-  "videojuegos": [
-    { src: "imagenes/catalogo/videojuegos/vid1.png", title: "Videojuegos 1" }
-    
-  ],
-  "marvel-dc": [
-    { src: "imagenes/catalogo/marvel-dc/marvel1.png", title: "Marvel/DC 1" }
-    
-  ],
-  "dibujos": [
-    { src: "imagenes/catalogo/dibujos/d1.png", title: "Dibujos 1" }
-  ],
-  "peliculas": [
-    { src: "imagenes/catalogo/peliculas/peli1.png", title: "Películas 1" }
-  ],
-  "naturaleza": [
-    { src: "imagenes/catalogo/naturaleza/nat1.png", title: "Naturaleza 1" }
-  ],
+  "videojuegos": [],
+  "marvel-dc": [],
+  "dibujos": [],
+  "peliculas": [],
+  "naturaleza": []
 };
 
 function renderGallery(category){
@@ -167,15 +142,16 @@ function renderGallery(category){
   const sizes = document.getElementById("catSizes");
   if (!gallery || !sizes) return;
 
-  // Si es "tamano", oculto galería y muestro tamaños
+  // Mostrar "Tamaño"
   if (category === "tamano"){
     gallery.innerHTML = "";
     gallery.hidden = true;
     sizes.hidden = false;
+    adjustMainOffset();
     return;
   }
 
-  // Caso normal: muestro galería
+  // Mostrar galería
   sizes.hidden = true;
   gallery.hidden = false;
 
@@ -183,33 +159,40 @@ function renderGallery(category){
   if (!items.length){
     gallery.innerHTML = `
       <div class="note" style="grid-column:1/-1;">
-        Aún no hay imágenes en esta categoría. Sube fotos a <b>/imagenes/catalogo/${category}/</b> y agrégalas en app.js.
+        Aún no hay imágenes en esta categoría. Sube fotos a <b>imagenes/catalogo/${category}/</b> y agrégalas en app.js.
       </div>
     `;
+    adjustMainOffset();
     return;
   }
 
-  gallery.innerHTML = items.map((it) => `
+  // ✅ Sin title visible; solo imagen + botón
+  gallery.innerHTML = items.map((it, idx) => `
     <article class="cat-item">
-      <img src="${it.src}" alt="${it.title}" loading="lazy">
+      <div class="img-box">
+        <img src="${it.src}" alt="Catálogo ${category}" loading="lazy">
+      </div>
       <div class="cat-cap">
-        <b>${it.title}</b>
-        <button class="btn primary" type="button" data-wa="${it.title}">
+        <button class="btn primary" type="button" data-cat="${category}" data-idx="${idx}">
           Cotizar
         </button>
       </div>
     </article>
   `).join("");
 
-  // Botón cotizar por cada imagen
-  gallery.querySelectorAll("button[data-wa]").forEach(btn => {
+  // Eventos Cotizar
+  gallery.querySelectorAll("button[data-cat]").forEach(btn => {
     btn.addEventListener("click", () => {
-      const title = btn.getAttribute("data-wa");
+      const cat = btn.getAttribute("data-cat");
+      const idx = Number(btn.getAttribute("data-idx")) + 1;
+
       openWhatsApp(
-        `Hola, quiero cotizar un cuadro en placa de aluminio del catálogo: *${category.toUpperCase()}*.\nModelo: *${title}*.\n¿Me confirmas precios por tamaño y tiempos de entrega en Quito?`
+        `Hola, quiero cotizar un cuadro en placa de aluminio.\nCategoría: *${cat.toUpperCase()}*.\nModelo: *${idx}*.\n¿Me confirmas precios por tamaño y tiempos de entrega en Quito?`
       );
     });
   });
+
+  adjustMainOffset();
 }
 
 function setupCatalogTabs(){
@@ -219,22 +202,12 @@ function setupCatalogTabs(){
   const setActiveTab = (key) => {
     tabs.forEach(t => t.classList.toggle("is-active", t.dataset.tab === key));
     renderGallery(key);
-
-    // ✅ Recalcula por si cambia altura del catálogo
-    adjustMainOffset();
   };
 
-  tabs.forEach(t => {
-    t.addEventListener("click", () => setActiveTab(t.dataset.tab));
-  });
+  tabs.forEach(t => t.addEventListener("click", () => setActiveTab(t.dataset.tab)));
 
-  // Inicial: Deportes (puedes cambiar a "tamano" si quieres abrir tamaños por defecto)
-  setActiveTab("deportes");
+  // Inicial
+  setActiveTab("anime"); // puedes cambiar a "deportes" o "tamano"
 }
 
 window.addEventListener("load", setupCatalogTabs);
-
-
-
-
-

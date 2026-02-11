@@ -137,7 +137,7 @@ window.addEventListener("load", setupActiveMenu);
 // - Luego agrega cada imagen aquí (src + title)
 const CATALOG = {
   "deportes": [
-    { src: "imagenes/catalogo/deportes/messi.png", title: "Deportes 1" }
+    { src: "imagenes/catalogo/deportes/messi.png"}
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg", title: "Anime 1" }
@@ -233,6 +233,7 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

@@ -80,6 +80,51 @@ function setupHeaderShrink(){
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 }
+// ===== Menú activo según sección visible =====
+function setupActiveMenu(){
+  const links = Array.from(document.querySelectorAll(".nav-pill[data-link]"));
+  const sections = ["catalogo","personalizado","contacto"]
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if (!links.length || !sections.length) return;
+
+  const setActive = (id) => {
+    links.forEach(a => {
+      a.classList.toggle("is-active", a.dataset.link === id);
+    });
+  };
+
+  // Activo al click (respuesta inmediata)
+  links.forEach(a => {
+    a.addEventListener("click", () => setActive(a.dataset.link));
+  });
+
+  // Activo por scroll (IntersectionObserver)
+  const io = new IntersectionObserver((entries) => {
+    // Elegimos la sección más visible
+    const visible = entries
+      .filter(e => e.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible && visible.target && visible.target.id) {
+      setActive(visible.target.id);
+    }
+  }, {
+    root: null,
+    threshold: [0.25, 0.4, 0.55],
+  });
+
+  sections.forEach(sec => io.observe(sec));
+
+  // Estado inicial
+  const hash = (location.hash || "#catalogo").replace("#","");
+  if (["catalogo","personalizado","contacto"].includes(hash)) setActive(hash);
+  else setActive("catalogo");
+}
+
+window.addEventListener("load", setupActiveMenu);
+
 
 
 

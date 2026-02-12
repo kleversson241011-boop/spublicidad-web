@@ -559,3 +559,15 @@ textarea{min-height:120px;resize:vertical}
   .steps{grid-template-columns:1fr}
   .cat-gallery{ grid-template-columns: 1fr; }
 }
+.header-v3 .nav-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-v3 .nav-ico{
+  font-size: 14px;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(77,214,255,.45));
+}
+

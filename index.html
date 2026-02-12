@@ -44,7 +44,7 @@
 
   <main>
 
-    <!-- HERO -->
+    <!-- INICIO (HERO) -->
     <section id="inicio" class="hero hero-v2">
       <div class="hero-overlay"></div>
 
@@ -71,19 +71,23 @@
             </button>
           </div>
 
-          <ul class="hero-benefits">
-            <li>✔ Material premium que no se deforma ni pierde color</li>
-            <li>✔ Impresión HD que resalta cada detalle</li>
-            <li>✔ Listo para instalar y lucir espectacular</li>
-          </ul>
+          <!-- ✅ RECUADRO IZQUIERDO (beneficios + entregas) -->
+          <div class="hero-box hero-box-left">
+            <ul class="hero-benefits">
+              <li>✔ Material premium que no se deforma ni pierde color</li>
+              <li>✔ Impresión HD que resalta cada detalle</li>
+              <li>✔ Listo para instalar y lucir espectacular</li>
+            </ul>
 
-          <div class="hero-badge-bottom">
-            ⏳ Entregas rápidas en Quito — cupos semanales limitados
+            <div class="hero-badge-bottom">
+              ⏳ Entregas rápidas en Quito — cupos semanales limitados
+            </div>
           </div>
         </div>
 
         <div class="hero-right">
-          <div class="hero-card">
+          <!-- ✅ RECUADRO DERECHO (misma tarjeta, mismo contenido) -->
+          <div class="hero-card hero-box hero-box-right">
             <h3>✔ +500 clientes satisfechos</h3>
             <p>✔ Garantía de calidad y durabilidad</p>
 
@@ -115,7 +119,6 @@
           <button class="cat-tab" type="button" data-tab="naturaleza">Naturaleza</button>
         </div>
 
-        <!-- GALERÍA por categoría -->
         <div id="catGallery" class="cat-gallery" aria-live="polite"></div>
       </div>
     </section>
@@ -235,4 +238,3 @@
   <script src="app.js" defer></script>
 </body>
 </html>
-

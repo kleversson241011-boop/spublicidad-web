@@ -24,6 +24,7 @@
       <!-- CENTRO: MENÚ -->
       <nav class="center-nav" aria-label="Navegación">
         <a class="nav-pill" href="#catalogo" data-link="catalogo">Catálogo</a>
+        <a class="nav-pill" href="#tamano" data-link="tamano">Tamaño</a>
         <a class="nav-pill" href="#personalizado" data-link="personalizado">Personalizado</a>
         <a class="nav-pill" href="#contacto" data-link="contacto">Contacto</a>
       </nav>
@@ -63,13 +64,13 @@
       </div>
     </section>
 
-    <!-- CATÁLOGO (TABS + GALERÍA + TAMAÑO) -->
+    <!-- CATÁLOGO (TABS + GALERÍA) -->
     <section id="catalogo" class="section">
       <div class="container">
         <h2 class="h2">Catálogo</h2>
-        <p class="muted">Elige una categoría para ver diseños o selecciona <b>Tamaño</b> para ver precios por formato.</p>
+        <p class="muted">Elige una categoría para ver diseños.</p>
 
-        <!-- Tabs horizontales -->
+        <!-- Tabs horizontales (SIN Tamaño) -->
         <div class="cat-tabs" role="tablist" aria-label="Categorías de catálogo">
           <button class="cat-tab is-active" type="button" data-tab="deportes">Deportes</button>
           <button class="cat-tab" type="button" data-tab="anime">Anime</button>
@@ -78,63 +79,66 @@
           <button class="cat-tab" type="button" data-tab="dibujos">Dibujos</button>
           <button class="cat-tab" type="button" data-tab="peliculas">Películas</button>
           <button class="cat-tab" type="button" data-tab="naturaleza">Naturaleza</button>
-          <button class="cat-tab" type="button" data-tab="tamano">Tamaño</button>
         </div>
 
-        <!-- Panel: GALERÍA por categoría -->
+        <!-- GALERÍA por categoría -->
         <div id="catGallery" class="cat-gallery" aria-live="polite"></div>
+      </div>
+    </section>
 
-        <!-- Panel: TAMAÑO (TU CATÁLOGO ACTUAL) -->
-        <div id="catSizes" class="cat-sizes" hidden>
-          <div class="grid">
-            <article class="card">
-              <h3>A0 · 841 × 594</h3>
-              <p class="muted">Impacto visual (locales / salas)</p>
-              <p class="price">$ 240</p>
-              <button class="btn buy" data-product="Cuadro en aluminio A0 (841×594) - $240">Comprar por WhatsApp</button>
-            </article>
+    <!-- TAMAÑOS Y PRECIOS (SECCIÓN PRINCIPAL) -->
+    <section id="tamano" class="section">
+      <div class="container">
+        <h2 class="h2">Tamaños y Precios</h2>
+        <p class="muted">Selecciona el formato que mejor se adapte a tu espacio.</p>
 
-            <article class="card">
-              <h3>A1 · 594 × 841</h3>
-              <p class="muted">Oficinas y decoración moderna</p>
-              <p class="price">$ 120</p>
-              <button class="btn buy" data-product="Cuadro en aluminio A1 (594×841) - $120">Comprar por WhatsApp</button>
-            </article>
+        <div class="grid">
+          <article class="card">
+            <h3>A0 · 841 × 594</h3>
+            <p class="muted">Impacto visual (locales / salas)</p>
+            <p class="price">$ 240</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A0 (841×594) - $240">Comprar por WhatsApp</button>
+          </article>
 
-            <article class="card">
-              <h3>A2 · 420 × 594</h3>
-              <p class="muted">Balance ideal tamaño/precio</p>
-              <p class="price">$ 60</p>
-              <button class="btn buy" data-product="Cuadro en aluminio A2 (420×594) - $60">Comprar por WhatsApp</button>
-            </article>
+          <article class="card">
+            <h3>A1 · 594 × 841</h3>
+            <p class="muted">Oficinas y decoración moderna</p>
+            <p class="price">$ 120</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A1 (594×841) - $120">Comprar por WhatsApp</button>
+          </article>
 
-            <article class="card">
-              <h3>A3 · 297 × 420</h3>
-              <p class="muted">Regalos o decoración</p>
-              <p class="price">$ 30</p>
-              <button class="btn buy" data-product="Cuadro en aluminio A3 (297×420) - $30">Comprar por WhatsApp</button>
-            </article>
+          <article class="card">
+            <h3>A2 · 420 × 594</h3>
+            <p class="muted">Balance ideal tamaño/precio</p>
+            <p class="price">$ 60</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A2 (420×594) - $60">Comprar por WhatsApp</button>
+          </article>
 
-            <article class="card">
-              <h3>A4 · 297 × 210</h3>
-              <p class="muted">Pequeño, moderno y accesible</p>
-              <p class="price">$ 15</p>
-              <button class="btn buy" data-product="Cuadro en aluminio A4 (297×210) - $15">Comprar por WhatsApp</button>
-            </article>
+          <article class="card">
+            <h3>A3 · 297 × 420</h3>
+            <p class="muted">Regalos o decoración</p>
+            <p class="price">$ 30</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A3 (297×420) - $30">Comprar por WhatsApp</button>
+          </article>
 
-            <article class="card">
-              <h3>Personalizado</h3>
-              <p class="muted">Envíanos tu foto/idea y el formato</p>
-              <p class="price">Según formato</p>
-              <button class="btn buy" data-product="Cuadro personalizado en aluminio - Quiero cotizar (indico formato y diseño)">Cotizar por WhatsApp</button>
-            </article>
-          </div>
+          <article class="card">
+            <h3>A4 · 297 × 210</h3>
+            <p class="muted">Pequeño, moderno y accesible</p>
+            <p class="price">$ 15</p>
+            <button class="btn buy" data-product="Cuadro en aluminio A4 (297×210) - $15">Comprar por WhatsApp</button>
+          </article>
 
-          <div class="note" style="margin-top:14px;">
-            Los precios corresponden al formato indicado. Para diseño personalizado confirmamos detalles por WhatsApp.
-          </div>
+          <article class="card">
+            <h3>Personalizado</h3>
+            <p class="muted">Envíanos tu foto/idea y el formato</p>
+            <p class="price">Según formato</p>
+            <button class="btn buy" data-product="Cuadro personalizado en aluminio - Quiero cotizar (indico formato y diseño)">Cotizar por WhatsApp</button>
+          </article>
         </div>
 
+        <div class="note" style="margin-top:14px;">
+          Los precios corresponden al formato indicado. Para diseño personalizado confirmamos detalles por WhatsApp.
+        </div>
       </div>
     </section>
 
@@ -167,6 +171,7 @@
               📍 Quito<br>
               🕒 Lunes a sábado · 09:00–18:00<br>
               📞 99 800 6243
+              📩 Email:spublicidad02@gmail.com
             </p>
           </div>
 

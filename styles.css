@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}
 main{ padding-top: 0; }
 
 /* Offset para anclas */
-#catalogo, #tamano, #personalizado, #contacto{
+#inicio, #catalogo, #tamano, #personalizado, #contacto{
   scroll-margin-top: 180px;
 }
 
@@ -181,50 +181,7 @@ main{ padding-top: 0; }
   height: 130px;
 }
 
-/* ===== HERO ===== */
-.hero{
-  margin: 18px;
-  border-radius: 22px;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 18% 10%, rgba(255,255,255,.18), transparent 40%),
-    linear-gradient(135deg,#2b6cff,#7b3fe4);
-}
-
-.hero-inner{
-  padding:70px 18px;
-  text-align:center;
-}
-
-.badge{
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.15);
-  font-weight:900;
-  font-size:12px;
-}
-
-.hero h1{
-  margin:16px 0 10px;
-  font-size:clamp(30px,4vw,46px);
-  line-height:1.05;
-}
-
-.hero-sub{
-  max-width:720px;
-  margin:0 auto;
-  font-size:16px;
-}
-
-.hero-actions{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
+/* ===== BOTONES ===== */
 .btn{
   padding:10px 16px;
   border-radius:14px;
@@ -286,6 +243,7 @@ main{ padding-top: 0; }
   background: rgba(255,255,255,.06);
   font-weight: 900;
   cursor:pointer;
+  color: var(--text);
 }
 
 .cat-tab.is-active{
@@ -319,7 +277,7 @@ main{ padding-top: 0; }
 .cat-item .img-box img{
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* ✅ lo mantienes así */
   display:block;
 }
 
@@ -329,64 +287,231 @@ main{ padding-top: 0; }
   justify-content:center;
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr 1fr}
-  .cat-gallery{ grid-template-columns: repeat(2, 1fr); }
-  #catalogo, #tamano, #personalizado, #contacto{ scroll-margin-top: 140px; }
+/* ===== HERO V2 PRO ===== */
+.hero-v2{
+  position: relative;
+  margin: 18px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.15), transparent 40%),
+    linear-gradient(135deg,#3b6bff,#7c3aed);
 }
 
-@media(max-width:560px){
-  .grid{grid-template-columns:1fr}
-  .cat-gallery{ grid-template-columns: 1fr; }
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(800px 400px at 80% 30%, rgba(255,255,255,.25), transparent 60%);
+  opacity:.4;
+  pointer-events:none;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.15);
+  font-weight:900;
+  font-size:12px;
+}
+
+.hero-content{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  padding: 70px 20px;
+  align-items:center;
+}
+
+.hero-left h1{
+  margin:16px 0;
+  font-size: clamp(30px,4vw,46px);
+  line-height:1.05;
+}
+
+.hero-sub{
+  max-width:720px;
+  margin:0;
+  font-size:16px;
+  color: rgba(255,255,255,.92);
+}
+
+.hero-actions{
+  margin-top:18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.hero-benefits{
+  margin:0;
+  padding-left:0;
+  list-style:none;
+  font-weight:600;
+}
+
+.hero-benefits li{
+  margin-bottom:8px;
+  color:rgba(255,255,255,.92);
+}
+
+.hero-badge-bottom{
+  padding:10px 14px;
+  border-radius:14px;
+  background:rgba(0,0,0,.25);
+  font-weight:700;
+}
+
+.hero-right{
+  display:flex;
+  justify-content:center;
+}
+
+.hero-card{
+  background: rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(14px);
+  border-radius:22px;
+  padding:26px;
+  width:100%;
+  max-width:380px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+}
+
+.hero-card h3{
+  margin-top:0;
+}
+
+.hero-email{
+  margin-top:16px;
+  padding:12px;
+  border-radius:14px;
+  background:rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+}
+
+.mail-icon{
+  font-size:18px;
+}
+
+.idea-text{
+  margin-top:12px;
+  font-weight:600;
+  color:rgba(255,255,255,.85);
+}
+
+/* ===== CONTACTO + OTROS ===== */
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+
+.panel{
+  background:rgba(16,26,51,.65);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px;
+}
+
+.panel h3{ margin:0 0 8px; }
+
+#formCotizacion input,
+#formCotizacion textarea{
+  width:100%;
+  margin: 8px 0;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  outline: none;
+}
+
+#formCotizacion textarea{
+  min-height: 110px;
+  resize: vertical;
+}
+
+.small{ font-size: 12px; opacity: .9; }
+
+.steps{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:12px;
+  margin-top:14px;
+}
+
+.step{
+  background:rgba(16,26,51,.65);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:14px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.step b{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+/* Footer */
+.footer{
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,.10);
+  color: rgba(236,242,255,.9);
+  text-align:center;
+}
+
+/* Botón WhatsApp flotante */
+.wa-float{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 99999;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,var(--brand),var(--brand2));
+  color: #fff;
+  font-weight: 950;
+  cursor: pointer;
+  box-shadow: 0 16px 34px rgba(0,0,0,.35);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.wa-float:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.42);
 }
 
 /* ===============================
    SECCIÓN TAMAÑO DESTACADA
 ================================= */
-
-#tamano{
-  position: relative;
-  border-top: 1px solid rgba(77,214,255,.15);
-  border-bottom: 1px solid rgba(124,92,255,.15);
-  background:
-    radial-gradient(600px 300px at 20% 0%, rgba(77,214,255,.12), transparent 70%),
-    radial-gradient(600px 300px at 80% 100%, rgba(124,92,255,.10), transparent 70%),
-    linear-gradient(180deg, rgba(16,26,51,.75), rgba(10,16,30,.85));
-  transition: background .4s ease, box-shadow .4s ease;
-}
-
-/* Glow suave interno */
-#tamano::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(77,214,255,.15), transparent 60%);
-  opacity:.6;
-  pointer-events:none;
-}
-
-/* Cuando esté visible (activo en viewport) */
-#tamano.section-visible{
-  box-shadow: 0 0 60px rgba(77,214,255,.18);
-}
-/* ==================================================
-   SECCIÓN TAMAÑO DESTACADA
-================================================== */
-
 #tamano{
   position: relative;
   overflow: hidden;
-
   border-top: 1px solid rgba(77,214,255,.15);
   border-bottom: 1px solid rgba(124,92,255,.15);
-
   background:
     radial-gradient(700px 350px at 20% 0%, rgba(77,214,255,.10), transparent 70%),
     radial-gradient(700px 350px at 80% 100%, rgba(124,92,255,.10), transparent 70%),
     linear-gradient(180deg, rgba(16,26,51,.75), rgba(10,16,30,.85));
-
   transition: background .4s ease, box-shadow .4s ease;
 }
 
@@ -402,7 +527,6 @@ main{ padding-top: 0; }
   transition: opacity .4s ease;
 }
 
-/* Cuando está visible en viewport */
 #tamano.section-visible{
   box-shadow: 0 0 60px rgba(77,214,255,.18);
 }
@@ -411,6 +535,41 @@ main{ padding-top: 0; }
   opacity:.9;
 }
 
+/* ===== HERO: recuadros solicitados (sin cambiar contenido) ===== */
+.hero-box{
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.25);
+}
 
+.hero-box-left{
+  margin-top: 18px;
+  padding: 16px 18px;
+}
 
+.hero-box-left .hero-badge-bottom{
+  margin-top: 14px;
+}
 
+.hero-box-right{
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr 1fr}
+  .cat-gallery{ grid-template-columns: repeat(2, 1fr); }
+  .hero-content{ grid-template-columns: 1fr; text-align:center; }
+  .hero-right{ margin-top: 18px; }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .steps{ grid-template-columns: 1fr 1fr; }
+  #inicio, #catalogo, #tamano, #personalizado, #contacto{ scroll-margin-top: 140px; }
+}
+
+@media(max-width:560px){
+  .grid{grid-template-columns:1fr}
+  .cat-gallery{ grid-template-columns: 1fr; }
+  .steps{ grid-template-columns: 1fr; }
+}

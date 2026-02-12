@@ -25,8 +25,8 @@
       <nav class="center-nav" aria-label="Navegación">
         <a class="nav-pill" href="#catalogo" data-link="catalogo">Catálogo</a>
         <a class="nav-pill" href="#tamano" data-link="tamano">
-         <span class="nav-ico" aria-hidden="true">📐</span>
-         <span>Tamaño</span>
+          <span class="nav-ico" aria-hidden="true">📐</span>
+          <span>Tamaño</span>
         </a>
         <a class="nav-pill" href="#personalizado" data-link="personalizado">Personalizado</a>
         <a class="nav-pill" href="#contacto" data-link="contacto">Contacto</a>
@@ -45,77 +45,81 @@
 
     <!-- HERO -->
     <section class="hero hero-v2">
-  <div class="hero-overlay"></div>
+      <div class="hero-overlay"></div>
 
-  <div class="hero-content container">
+      <div class="hero-content container">
 
-    <div class="hero-left">
-      <span class="badge">
-        ✨ Acabado premium · Durabilidad · Personalización
-      </span>
+        <div class="hero-left">
+          <span class="badge">
+            ✨ Acabado premium · Durabilidad · Personalización
+          </span>
 
-      <h1>
-        Cuadros en placa de aluminio
-        que elevan tu espacio.
-      </h1>
+          <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
 
-      <p class="hero-sub">
-        Convierte cualquier pared en una experiencia visual inolvidable.
-        <strong>SK PUBLICIDAD:</strong> Diseños modernos, impresión en alta definición y entrega rápida en Quito.
-      </p>
+          <p class="hero-sub">
+            Convierte cualquier pared en una experiencia visual inolvidable.
+            <strong>SK PUBLICIDAD:</strong> Diseños modernos, impresión en alta definición y entrega rápida en Quito.
+          </p>
 
-      <div class="hero-actions">
-        <a href="#catalogo" class="btn">
-          🔍 Ver catálogo
-        </a>
+          <div class="hero-actions">
+            <a href="#catalogo" class="btn">🔍 Ver catálogo</a>
 
-        <button class="btn primary" onclick="openWhatsApp('Hola, quiero cotizar un cuadro en placa de aluminio.')">
-          ✉️ Cotizar
-        </button>
-      </div>
+            <button class="btn primary" type="button"
+              onclick="openWhatsApp('Hola, quiero cotizar un cuadro en placa de aluminio.')">
+              ✉️ Cotizar
+            </button>
+          </div>
 
-      <ul class="hero-benefits">
-        <li>✔ Material premium que no se deforma ni pierde color</li>
-        <li>✔ Impresión HD que resalta cada detalle</li>
-        <li>✔ Listo para instalar y lucir espectacular</li>
-      </ul>
+          <ul class="hero-benefits">
+            <li>✔ Material premium que no se deforma ni pierde color</li>
+            <li>✔ Impresión HD que resalta cada detalle</li>
+            <li>✔ Listo para instalar y lucir espectacular</li>
+          </ul>
 
-      <div class="hero-badge-bottom">
-        ⏳ Entregas rápidas en Quito — cupos semanales limitados
-      </div>
-    </div>
-
-    <div class="hero-right">
-      <div class="hero-card">
-
-        <h3>✔ +500 clientes satisfechos</h3>
-
-        <!-- ❌ ELIMINADO: Más de 3 años elevando espacios en Quito -->
-
-        <p>✔ Garantía de calidad y durabilidad</p>
-
-        <div class="hero-email">
-          <span class="mail-icon">✉</span>
-          <strong>spublicidad02@gmail.com</strong>
+          <div class="hero-badge-bottom">
+            ⏳ Entregas rápidas en Quito — cupos semanales limitados
+          </div>
         </div>
 
-        <p class="idea-text">
-          ¿Tienes una idea? La convertimos en arte.
-        </p>
+        <div class="hero-right">
+          <div class="hero-card">
+            <h3>✔ +500 clientes satisfechos</h3>
+            <p>✔ Garantía de calidad y durabilidad</p>
+
+            <div class="hero-email">
+              <span class="mail-icon">✉</span>
+              <strong>spublicidad02@gmail.com</strong>
+            </div>
+
+            <p class="idea-text">¿Tienes una idea? La convertimos en arte.</p>
+          </div>
+        </div>
 
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <h2 class="h2">Catálogo</h2>
+        <p class="muted">Elige una categoría para ver modelos.</p>
 
+        <div class="cat-tabs" aria-label="Categorías del catálogo">
+          <button class="cat-tab" type="button" data-tab="deportes">Deportes</button>
+          <button class="cat-tab" type="button" data-tab="anime">Anime</button>
+          <button class="cat-tab" type="button" data-tab="videojuegos">VideoJuegos</button>
+          <button class="cat-tab" type="button" data-tab="marvel-dc">Marvel&DC</button>
+          <button class="cat-tab" type="button" data-tab="dibujos">Dibujos</button>
+          <button class="cat-tab" type="button" data-tab="peliculas">Películas</button>
+          <button class="cat-tab" type="button" data-tab="naturaleza">Naturaleza</button>
+        </div>
 
         <!-- GALERÍA por categoría -->
         <div id="catGallery" class="cat-gallery" aria-live="polite"></div>
       </div>
     </section>
 
-    <!-- TAMAÑOS Y PRECIOS (SECCIÓN PRINCIPAL) -->
+    <!-- TAMAÑOS Y PRECIOS -->
     <section id="tamano" class="section">
       <div class="container">
         <h2 class="h2">Tamaños y Precios</h2>
@@ -200,7 +204,6 @@
               📍 Quito<br>
               🕒 Lunes a sábado · 09:00–18:00<br>
               📞 99 800 6243
-              
             </p>
           </div>
 
@@ -231,6 +234,3 @@
   <script src="app.js" defer></script>
 </body>
 </html>
-
-
-

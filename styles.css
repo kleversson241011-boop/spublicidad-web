@@ -29,8 +29,8 @@ a{color:inherit;text-decoration:none}
 /* JS calcula el padding-top */
 main{ padding-top: 0; }
 
-/* Offset para anclas */
-#catalogo, #personalizado, #contacto{
+/* Offset para anclas (✅ incluye tamano) */
+#catalogo, #tamano, #personalizado, #contacto{
   scroll-margin-top: 180px;
 }
 
@@ -126,7 +126,7 @@ main{ padding-top: 0; }
   color: rgba(236,242,255,.92);
   font-weight: 850;
   letter-spacing: .2px;
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 .header-v3 .nav-pill:hover{
@@ -143,6 +143,45 @@ main{ padding-top: 0; }
   box-shadow: 0 12px 26px rgba(77,214,255,.18);
   color: #fff;
   transform: translateY(-1px);
+}
+
+/* ✅ DESTACADO: botón Tamaño en menú principal */
+.header-v3 .nav-pill[data-link="tamano"]{
+  background: linear-gradient(135deg, rgba(77,214,255,.22), rgba(124,92,255,.20));
+  border-color: rgba(77,214,255,.35);
+  box-shadow: 0 10px 24px rgba(77,214,255,.14);
+  position: relative;
+  isolation: isolate;
+}
+
+/* glow suave alrededor */
+.header-v3 .nav-pill[data-link="tamano"]::after{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border-radius: 18px;
+  background: radial-gradient(circle at 30% 30%, rgba(77,214,255,.25), transparent 55%),
+              radial-gradient(circle at 70% 70%, rgba(124,92,255,.22), transparent 60%);
+  z-index: -1;
+  opacity: .75;
+  filter: blur(8px);
+  transition: opacity .18s ease;
+}
+
+.header-v3 .nav-pill[data-link="tamano"]:hover{
+  border-color: rgba(77,214,255,.55);
+  box-shadow: 0 14px 30px rgba(77,214,255,.18);
+}
+
+.header-v3 .nav-pill[data-link="tamano"]:hover::after{
+  opacity: 1;
+}
+
+/* cuando Tamaño está activo (más fuerte aún) */
+.header-v3 .nav-pill[data-link="tamano"].is-active{
+  background: linear-gradient(135deg, rgba(77,214,255,.34), rgba(124,92,255,.30));
+  border-color: rgba(77,214,255,.70);
+  box-shadow: 0 16px 38px rgba(77,214,255,.24);
 }
 
 .header-v3 .right{
@@ -461,7 +500,7 @@ textarea{min-height:120px;resize:vertical}
 /* Caja fija -> tamaño único */
 .cat-item .img-box{
   width: 100%;
-  height: 260px;                 /* ✅ un solo tamaño para todas */
+  height: 260px;
   background: rgba(0,0,0,.20);
   display:flex;
   align-items:center;
@@ -472,7 +511,7 @@ textarea{min-height:120px;resize:vertical}
 .cat-item .img-box img{
   width: 100%;
   height: 100%;
-  object-fit: contain;           /* ✅ NO se corta */
+  object-fit: contain;
   display:block;
 }
 
@@ -480,7 +519,7 @@ textarea{min-height:120px;resize:vertical}
 .cat-item .cat-cap{
   padding: 12px;
   display:flex;
-  justify-content:center;        /* botón centrado */
+  justify-content:center;
   gap: 10px;
 }
 
@@ -512,7 +551,7 @@ textarea{min-height:120px;resize:vertical}
   .header-v3 .logo-img{ height: 140px; }
   .header-v3.is-scrolled .logo-img{ height: 110px; }
 
-  #catalogo, #personalizado, #contacto{ scroll-margin-top: 140px; }
+  #catalogo, #tamano, #personalizado, #contacto{ scroll-margin-top: 140px; }
 }
 
 @media(max-width:560px){

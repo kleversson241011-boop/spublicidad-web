@@ -123,43 +123,35 @@ window.addEventListener("load", setupActiveMenu);
 // IMPORTANTE: Ajusta aquí los nombres reales de tus archivos.
 // Ejemplo real tuyo: anime1.jpg
 const CATALOG = {
-  "deportes": [],
-   { src: "imagenes/catalogo/deportes/messi.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/deportes/anime2.jpg" },
-    // { src: "imagenes/catalogo/deportes/anime3.jpg" }
+  "deportes": [
+    { src: "imagenes/catalogo/deportes/messi.png" }
+  ],
+
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
-    // agrega más:
-    // { src: "imagenes/catalogo/anime/anime2.jpg" },
-    // { src: "imagenes/catalogo/anime/anime3.jpg" }
   ],
-  "videojuegos": [],
-   { src: "imagenes/catalogo/videojuegos/vid1.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/videojuegos/anime2.jpg" },
-    // { src: "imagenes/catalogo/videojuegos/anime3.jpg" }
-  "marvel-dc": [],
-     { src: "imagenes/catalogo/marvel-dc/marvel1.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/marvel-dc/anime2.jpg" },
-    // { src: "imagenes/catalogo/marvel-dc/anime3.jpg" }
-  "dibujos": [],
-     { src: "imagenes/catalogo/dibujos/d1.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/dibujos/anime2.jpg" },
-    // { src: "imagenes/catalogo/dibujos/anime3.jpg" }
-  "peliculas": [],
-     { src: "imagenes/catalogo/peliculas/peli1.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/peliculas/anime2.jpg" },
-    // { src: "imagenes/catalogo/peliculas/anime3.jpg" }
-  "naturaleza": []
- { src: "imagenes/catalogo/naturaleza/nat1.png" }
-    // agrega más:
-    // { src: "imagenes/catalogo/naturaleza/anime2.jpg" },
-    // { src: "imagenes/catalogo/naturaleza/anime3.jpg" }
+
+  "videojuegos": [
+    { src: "imagenes/catalogo/videojuegos/vid1.png" }
+  ],
+
+  "marvel-dc": [
+    { src: "imagenes/catalogo/marvel-dc/marvel1.png" }
+  ],
+
+  "dibujos": [
+    { src: "imagenes/catalogo/dibujos/d1.png" }
+  ],
+
+  "peliculas": [
+    { src: "imagenes/catalogo/peliculas/peli1.png" }
+  ],
+
+  "naturaleza": [
+    { src: "imagenes/catalogo/naturaleza/nat1.png" }
+  ]
 };
+
 
 function renderGallery(category){
   const gallery = document.getElementById("catGallery");
@@ -235,6 +227,7 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

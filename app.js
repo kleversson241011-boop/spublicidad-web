@@ -108,6 +108,16 @@ function setupActiveMenu(){
       .filter(e => e.isIntersecting)
       .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
     if (visible?.target?.id) setActive(visible.target.id);
+    // Activar fondo especial en sección Tamaño
+document.querySelectorAll("#tamano").forEach(sec=>{
+  sec.classList.remove("section-visible");
+});
+
+if (visible?.target?.id === "tamano"){
+  const secTam = document.getElementById("tamano");
+  if (secTam) secTam.classList.add("section-visible");
+}
+
   }, { threshold: [0.25, 0.4, 0.55] });
 
   sections.forEach(sec => io.observe(sec));
@@ -206,3 +216,4 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+

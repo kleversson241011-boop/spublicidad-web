@@ -216,4 +216,3 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
-

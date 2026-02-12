@@ -44,45 +44,71 @@
   <main>
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="badge">✨ Acabado premium · Durabilidad · Personalización</div>
+    <section class="hero hero-v2">
+  <div class="hero-overlay"></div>
 
-        <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
+  <div class="hero-content container">
 
-        <p class="hero-sub">
-          <strong>SK PUBLICIDAD</strong>: Diseños modernos, impresión en alta definición y entrega rápida en Quito.
+    <div class="hero-left">
+      <span class="badge">
+        ✨ Acabado premium · Durabilidad · Personalización
+      </span>
+
+      <h1>
+        Cuadros en placa de aluminio
+        que elevan tu espacio.
+      </h1>
+
+      <p class="hero-sub">
+        Convierte cualquier pared en una experiencia visual inolvidable.
+        <strong>SK PUBLICIDAD:</strong> Diseños modernos, impresión en alta definición y entrega rápida en Quito.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn">
+          🔍 Ver catálogo
+        </a>
+
+        <button class="btn primary" onclick="openWhatsApp('Hola, quiero cotizar un cuadro en placa de aluminio.')">
+          ✉️ Cotizar
+        </button>
+      </div>
+
+      <ul class="hero-benefits">
+        <li>✔ Material premium que no se deforma ni pierde color</li>
+        <li>✔ Impresión HD que resalta cada detalle</li>
+        <li>✔ Listo para instalar y lucir espectacular</li>
+      </ul>
+
+      <div class="hero-badge-bottom">
+        ⏳ Entregas rápidas en Quito — cupos semanales limitados
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+
+        <h3>✔ +500 clientes satisfechos</h3>
+
+        <!-- ❌ ELIMINADO: Más de 3 años elevando espacios en Quito -->
+
+        <p>✔ Garantía de calidad y durabilidad</p>
+
+        <div class="hero-email">
+          <span class="mail-icon">✉</span>
+          <strong>spublicidad02@gmail.com</strong>
+        </div>
+
+        <p class="idea-text">
+          ¿Tienes una idea? La convertimos en arte.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn" href="#catalogo">Ver catálogo</a>
-          <a class="btn primary" href="#contacto">Cotizar</a>
-        </div>
-
-        <div class="hero-benefits">
-          <div class="benefit">Alta resistencia <span>Placa duradera y elegante</span></div>
-          <div class="benefit">Colores vivos <span>Impresión nítida y moderna</span></div>
-          <div class="benefit">Entrega en Quito <span>Coordinamos envío/entrega</span></div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- CATÁLOGO (TABS + GALERÍA) -->
-    <section id="catalogo" class="section">
-      <div class="container">
-        <h2 class="h2">Catálogo</h2>
-        <p class="muted">Elige una categoría para ver diseños.</p>
+  </div>
+</section>
 
-        <!-- Tabs horizontales (SIN Tamaño) -->
-        <div class="cat-tabs" role="tablist" aria-label="Categorías de catálogo">
-          <button class="cat-tab is-active" type="button" data-tab="deportes">Deportes</button>
-          <button class="cat-tab" type="button" data-tab="anime">Anime</button>
-          <button class="cat-tab" type="button" data-tab="videojuegos">VideoJuegos</button>
-          <button class="cat-tab" type="button" data-tab="marvel-dc">Marvel&DC</button>
-          <button class="cat-tab" type="button" data-tab="dibujos">Dibujos</button>
-          <button class="cat-tab" type="button" data-tab="peliculas">Películas</button>
-          <button class="cat-tab" type="button" data-tab="naturaleza">Naturaleza</button>
-        </div>
 
         <!-- GALERÍA por categoría -->
         <div id="catGallery" class="cat-gallery" aria-live="polite"></div>
@@ -205,5 +231,6 @@
   <script src="app.js" defer></script>
 </body>
 </html>
+
 
 

@@ -1,14 +1,14 @@
 // WhatsApp en formato internacional, SIN +, SIN espacios
 const WHATSAPP_NUMBER = "593998006243";
 
-function openWhatsApp(message){
+function openWhatsApp(message) {
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 }
 
 // Botón WhatsApp del header
 const btnTopWa = document.getElementById("btnTopWa");
-if (btnTopWa){
+if (btnTopWa) {
   btnTopWa.addEventListener("click", () => {
     openWhatsApp("Hola, quiero información de cuadros en placa de aluminio (SK PUBLICIDAD).");
   });
@@ -16,18 +16,20 @@ if (btnTopWa){
 
 // Botón flotante
 const waFloat = document.getElementById("waFloat");
-if (waFloat){
+if (waFloat) {
   waFloat.addEventListener("click", () => {
     openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD).");
   });
 }
 
 // Botones de compra del catálogo por tamaño (A0/A1/A2...)
-function bindSizeButtons(){
-  document.querySelectorAll("button[data-product]").forEach(btn=>{
-    btn.addEventListener("click", ()=>{
+function bindSizeButtons() {
+  document.querySelectorAll("button[data-product]").forEach(btn => {
+    btn.addEventListener("click", () => {
       const product = btn.getAttribute("data-product");
-      openWhatsApp(`Hola, quiero comprar/cotizar: *${product}*.\n¿Me confirmas disponibilidad y forma de entrega en Quito?`);
+      openWhatsApp(
+        `Hola, quiero comprar/cotizar: *${product}*.\n¿Me confirmas disponibilidad y forma de entrega en Quito?`
+      );
     });
   });
 }
@@ -35,8 +37,8 @@ bindSizeButtons();
 
 // Formulario a WhatsApp
 const form = document.getElementById("formCotizacion");
-if (form){
-  form.addEventListener("submit", (e)=>{
+if (form) {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     const nombre = document.getElementById("nombre").value.trim();
     const tel = document.getElementById("tel").value.trim();
@@ -46,7 +48,9 @@ if (form){
     if (tel) extra += `WhatsApp del cliente: ${tel}\n`;
     extra += `Detalle: ${msg}`;
 
-    openWhatsApp(`Hola, soy *${nombre}*.\nQuiero cotizar un cuadro en placa de aluminio.\n\n${extra}\n\nGracias.`);
+    openWhatsApp(
+      `Hola, soy *${nombre}*.\nQuiero cotizar un cuadro en placa de aluminio.\n\n${extra}\n\nGracias.`
+    );
   });
 }
 
@@ -56,7 +60,7 @@ if (year) year.textContent = new Date().getFullYear();
 
 
 // ===== Ajuste automático para que el header sticky NO tape el contenido =====
-function adjustMainOffset(){
+function adjustMainOffset() {
   const header = document.querySelector(".header-v3");
   const main = document.querySelector("main");
   if (!header || !main) return;
@@ -70,7 +74,7 @@ window.addEventListener("resize", adjustMainOffset);
 
 
 // ===== Header shrink al hacer scroll =====
-function setupHeaderShrink(){
+function setupHeaderShrink() {
   const header = document.querySelector(".header-v3");
   if (!header) return;
 
@@ -88,10 +92,10 @@ window.addEventListener("load", setupHeaderShrink);
 
 
 // ===== Menú activo según sección visible =====
-function setupActiveMenu(){
+function setupActiveMenu() {
   const links = Array.from(document.querySelectorAll(".nav-pill[data-link]"));
 
-  const sections = ["catalogo","tamano","personalizado","contacto"]
+  const sections = ["catalogo", "tamano", "personalizado", "contacto"]
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -106,33 +110,30 @@ function setupActiveMenu(){
   const io = new IntersectionObserver((entries) => {
     const visible = entries
       .filter(e => e.isIntersecting)
-      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
     if (visible?.target?.id) {
       setActive(visible.target.id);
     }
 
-    // ✅ Activar / desactivar fondo especial en sección Tamaño
+    // Activar / desactivar fondo especial en sección Tamaño
     const secTam = document.getElementById("tamano");
     if (secTam) {
       secTam.classList.toggle("section-visible", visible?.target?.id === "tamano");
     }
-
   }, { threshold: [0.25, 0.4, 0.55] });
 
   sections.forEach(sec => io.observe(sec));
 
-  const hash = (location.hash || "#catalogo").replace("#","");
-  if (["catalogo","tamano","personalizado","contacto"].includes(hash)) setActive(hash);
+  const hash = (location.hash || "#catalogo").replace("#", "");
+  if (["catalogo", "tamano", "personalizado", "contacto"].includes(hash)) setActive(hash);
   else setActive("catalogo");
 }
 
 window.addEventListener("load", setupActiveMenu);
 
 
-
 // ===== Catálogo por categorías (galería) =====
-// ✅ OJO: Ajusta los nombres EXACTOS de tus archivos
 const CATALOG = {
   "deportes": [
     { src: "imagenes/catalogo/deportes/messi.png" }
@@ -157,12 +158,12 @@ const CATALOG = {
   ]
 };
 
-function renderGallery(category){
+function renderGallery(category) {
   const gallery = document.getElementById("catGallery");
   if (!gallery) return;
 
   const items = CATALOG[category] || [];
-  if (!items.length){
+  if (!items.length) {
     gallery.innerHTML = `
       <div class="note" style="grid-column:1/-1;">
         Aún no hay imágenes en esta categoría.
@@ -172,7 +173,6 @@ function renderGallery(category){
     return;
   }
 
-  // ✅ Sin title visible; solo imagen + botón
   gallery.innerHTML = items.map((it, idx) => `
     <article class="cat-item">
       <div class="img-box">
@@ -186,7 +186,6 @@ function renderGallery(category){
     </article>
   `).join("");
 
-  // Eventos Cotizar
   gallery.querySelectorAll("button[data-cat]").forEach(btn => {
     btn.addEventListener("click", () => {
       const cat = btn.getAttribute("data-cat");
@@ -201,7 +200,7 @@ function renderGallery(category){
   adjustMainOffset();
 }
 
-function setupCatalogTabs(){
+function setupCatalogTabs() {
   const tabs = document.querySelectorAll(".cat-tab[data-tab]");
   if (!tabs.length) return;
 
@@ -213,9 +212,7 @@ function setupCatalogTabs(){
   tabs.forEach(t => t.addEventListener("click", () => setActiveTab(t.dataset.tab)));
 
   // Inicial
-  setActiveTab("deportes"); // puedes cambiar a "anime"
+  setActiveTab("deportes");
 }
 
 window.addEventListener("load", setupCatalogTabs);
-
-

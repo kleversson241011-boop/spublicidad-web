@@ -107,16 +107,16 @@ function setupActiveMenu(){
     const visible = entries
       .filter(e => e.isIntersecting)
       .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible?.target?.id) setActive(visible.target.id);
-    // Activar fondo especial en sección Tamaño
-document.querySelectorAll("#tamano").forEach(sec=>{
-  sec.classList.remove("section-visible");
-});
 
-if (visible?.target?.id === "tamano"){
-  const secTam = document.getElementById("tamano");
-  if (secTam) secTam.classList.add("section-visible");
-}
+    if (visible?.target?.id) {
+      setActive(visible.target.id);
+    }
+
+    // ✅ Activar / desactivar fondo especial en sección Tamaño
+    const secTam = document.getElementById("tamano");
+    if (secTam) {
+      secTam.classList.toggle("section-visible", visible?.target?.id === "tamano");
+    }
 
   }, { threshold: [0.25, 0.4, 0.55] });
 
@@ -128,6 +128,7 @@ if (visible?.target?.id === "tamano"){
 }
 
 window.addEventListener("load", setupActiveMenu);
+
 
 
 // ===== Catálogo por categorías (galería) =====
@@ -216,4 +217,5 @@ function setupCatalogTabs(){
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 

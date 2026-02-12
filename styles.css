@@ -146,13 +146,45 @@ main{ padding-top: 0; }
 }
 
 /* ✅ DESTACADO: botón Tamaño en menú principal */
-.header-v3 .nav-pill[data-link="tamano"]{
-  background: linear-gradient(135deg, rgba(77,214,255,.22), rgba(124,92,255,.20));
-  border-color: rgba(77,214,255,.35);
-  box-shadow: 0 10px 24px rgba(77,214,255,.14);
+/* ===== MENÚ PREMIUM PARA TODOS ===== */
+
+.header-v3 .nav-pill{
   position: relative;
   isolation: isolate;
 }
+
+/* Glow base suave para todos */
+.header-v3 .nav-pill::after{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(77,214,255,.18), transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(124,92,255,.18), transparent 60%);
+  z-index:-1;
+  opacity:0;
+  filter: blur(10px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Hover efecto premium */
+.header-v3 .nav-pill:hover::after{
+  opacity:.85;
+  transform: scale(1.05);
+}
+
+/* Activo más fuerte */
+.header-v3 .nav-pill.is-active{
+  background: linear-gradient(135deg, rgba(77,214,255,.30), rgba(124,92,255,.28));
+  border-color: rgba(77,214,255,.65);
+  box-shadow: 0 16px 38px rgba(77,214,255,.22);
+}
+
+.header-v3 .nav-pill.is-active::after{
+  opacity:1;
+}
+
 
 /* glow suave alrededor */
 .header-v3 .nav-pill[data-link="tamano"]::after{
@@ -570,4 +602,5 @@ textarea{min-height:120px;resize:vertical}
   line-height: 1;
   filter: drop-shadow(0 0 10px rgba(77,214,255,.45));
 }
+
 

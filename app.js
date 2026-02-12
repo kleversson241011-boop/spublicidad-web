@@ -90,7 +90,8 @@ window.addEventListener("load", setupHeaderShrink);
 // ===== Menú activo según sección visible =====
 function setupActiveMenu(){
   const links = Array.from(document.querySelectorAll(".nav-pill[data-link]"));
-  const sections = ["catalogo","personalizado","contacto"]
+
+  const sections = ["catalogo","tamano","personalizado","contacto"]
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -112,64 +113,42 @@ function setupActiveMenu(){
   sections.forEach(sec => io.observe(sec));
 
   const hash = (location.hash || "#catalogo").replace("#","");
-  if (["catalogo","personalizado","contacto"].includes(hash)) setActive(hash);
+  if (["catalogo","tamano","personalizado","contacto"].includes(hash)) setActive(hash);
   else setActive("catalogo");
 }
 
 window.addEventListener("load", setupActiveMenu);
 
 
-// ===== Catálogo por categorías (galería) + pestaña Tamaño =====
-// IMPORTANTE: Ajusta aquí los nombres reales de tus archivos.
-// Ejemplo real tuyo: anime1.jpg
+// ===== Catálogo por categorías (galería) =====
+// ✅ OJO: Ajusta los nombres EXACTOS de tus archivos
 const CATALOG = {
   "deportes": [
     { src: "imagenes/catalogo/deportes/messi.png" }
   ],
-
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
   ],
-
   "videojuegos": [
     { src: "imagenes/catalogo/videojuegos/vid1.png" }
   ],
-
   "marvel-dc": [
     { src: "imagenes/catalogo/marvel-dc/marvel1.png" }
   ],
-
   "dibujos": [
     { src: "imagenes/catalogo/dibujos/d1.png" }
   ],
-
   "peliculas": [
     { src: "imagenes/catalogo/peliculas/peli1.png" }
   ],
-
   "naturaleza": [
     { src: "imagenes/catalogo/naturaleza/nat1.png" }
   ]
 };
 
-
 function renderGallery(category){
   const gallery = document.getElementById("catGallery");
-  const sizes = document.getElementById("catSizes");
-  if (!gallery || !sizes) return;
-
-  // Mostrar "Tamaño"
-  if (category === "tamano"){
-    gallery.innerHTML = "";
-    gallery.hidden = true;
-    sizes.hidden = false;
-    adjustMainOffset();
-    return;
-  }
-
-  // Mostrar galería
-  sizes.hidden = true;
-  gallery.hidden = false;
+  if (!gallery) return;
 
   const items = CATALOG[category] || [];
   if (!items.length){
@@ -223,11 +202,7 @@ function setupCatalogTabs(){
   tabs.forEach(t => t.addEventListener("click", () => setActiveTab(t.dataset.tab)));
 
   // Inicial
-  setActiveTab("anime"); // puedes cambiar a "deportes" o "tamano"
+  setActiveTab("deportes"); // puedes cambiar a "anime"
 }
 
 window.addEventListener("load", setupCatalogTabs);
-
-
-
-

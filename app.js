@@ -95,7 +95,7 @@ window.addEventListener("load", setupHeaderShrink);
 function setupActiveMenu() {
   const links = Array.from(document.querySelectorAll(".nav-pill[data-link]"));
 
-  const sections = ["catalogo", "tamano", "personalizado", "contacto"]
+  const sections = ["inicio", "catalogo", "tamano", "personalizado", "contacto"]
     .map(id => document.getElementById(id))
     .filter(Boolean);
 
@@ -125,9 +125,9 @@ function setupActiveMenu() {
 
   sections.forEach(sec => io.observe(sec));
 
-  const hash = (location.hash || "#catalogo").replace("#", "");
-  if (["catalogo", "tamano", "personalizado", "contacto"].includes(hash)) setActive(hash);
-  else setActive("catalogo");
+  const hash = (location.hash || "#inicio").replace("#", "");
+  if (["inicio", "catalogo", "tamano", "personalizado", "contacto"].includes(hash)) setActive(hash);
+  else setActive("inicio");
 }
 
 window.addEventListener("load", setupActiveMenu);
@@ -216,3 +216,4 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+

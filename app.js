@@ -193,7 +193,16 @@ const CATALOG = {
     { src: "imagenes/catalogo/marvel-dc/marvel14.jpg" }
   ],
   "dibujos": [
-    { src: "imagenes/catalogo/dibujos/d1.png" }
+    { src: "imagenes/catalogo/dibujos/d1.png" },
+    { src: "imagenes/catalogo/dibujos/dibu.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu1.jpg" },
+    { src: "imagenes/catalogo/dibujos/dib2.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu3.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu4.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu5.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu6.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu7.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu8.jpg" }
   ],
   "peliculas": [
     { src: "imagenes/catalogo/peliculas/peli1.png" }
@@ -261,6 +270,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

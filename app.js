@@ -196,7 +196,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/dibujos/d1.png" },
     { src: "imagenes/catalogo/dibujos/dibu.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu1.jpg" },
-    { src: "imagenes/catalogo/dibujos/dib2.jpg" },
+    { src: "imagenes/catalogo/dibujos/dibu2.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu3.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu4.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu5.jpg" },
@@ -270,6 +270,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

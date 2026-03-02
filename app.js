@@ -179,7 +179,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/marvel-dc/marvel.jpg" },
     { src: "imagenes/catalogo/marvel-dc/marvel1.png" },
     { src: "imagenes/catalogo/marvel-dc/marvel2.jpg" },
-    { src: "imagenes/catalogo/marvel-dc/marve3.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel3.jpg" },
     { src: "imagenes/catalogo/marvel-dc/marvel4.jpg" },
     { src: "imagenes/catalogo/marvel-dc/marvel5.jpg" },
     { src: "imagenes/catalogo/marvel-dc/marvel6.jpg" },
@@ -261,6 +261,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

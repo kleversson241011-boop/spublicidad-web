@@ -142,7 +142,8 @@ const CATALOG = {
     { src: "imagenes/catalogo/deportes/cr7_1.jpg" },
     { src: "imagenes/catalogo/deportes/cr7_2.jpg" },
     { src: "imagenes/catalogo/deportes/cr7_3.jpg" },
-    { src: "imagenes/catalogo/deportes/ronaldo.jpg" }
+    { src: "imagenes/catalogo/deportes/ronaldo.jpg" },
+    { src: "imagenes/catalogo/deportes/legend.jpg" }
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
@@ -222,6 +223,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

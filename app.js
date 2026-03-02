@@ -137,7 +137,7 @@ window.addEventListener("load", setupActiveMenu);
 const CATALOG = {
   "deportes": [
     { src: "imagenes/catalogo/deportes/messi.png" },
-    { src: "imagenes/catalogo/deportes/messi_magic.JPG"}
+    { src: "imagenes/catalogo/deportes/messi_magic.jpg"}
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
@@ -217,6 +217,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

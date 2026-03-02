@@ -147,7 +147,18 @@ const CATALOG = {
      { src: "imagenes/catalogo/deportes/selec.jpg" }
   ],
   "anime": [
-    { src: "imagenes/catalogo/anime/anime1.jpg" }
+    { src: "imagenes/catalogo/anime/anime1.jpg" },
+    { src: "imagenes/catalogo/anime/anime2.jpg" },
+    { src: "imagenes/catalogo/anime/anime3.jpg" },
+    { src: "imagenes/catalogo/anime/anime4.jpg" },
+    { src: "imagenes/catalogo/anime/anime5.jpg" },
+    { src: "imagenes/catalogo/anime/anime6.jpg" },
+    { src: "imagenes/catalogo/anime/anime7.jpg" },
+    { src: "imagenes/catalogo/anime/anime8.jpg" },
+    { src: "imagenes/catalogo/anime/anime9.jpg" },
+    { src: "imagenes/catalogo/anime/anime10.jpg" },
+    { src: "imagenes/catalogo/anime/anime11.jpg" },
+    { src: "imagenes/catalogo/anime/anime12.jpg" }, 
   ],
   "videojuegos": [
     { src: "imagenes/catalogo/videojuegos/vid1.png" }
@@ -224,6 +235,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

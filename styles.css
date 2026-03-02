@@ -36,215 +36,143 @@ main { padding-top: 0; }
 
 /* ===== HEADER — COMPACTO ===== */
 /* =============================================
-   HEADER — DOS PISOS — Logo grande + Nav
+   HEADER — BARRA ÚNICA: Nav + WhatsApp
    ============================================= */
 
-/* === PISO 1: FRANJA DEL LOGO === */
 .header-v3 {
   position: sticky;
   top: 0;
   z-index: 9999;
-  background: linear-gradient(180deg, #060912 0%, #0a0f1e 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  /* Línea de acento inferior dividiendo logo de nav */
-  box-shadow: 0 4px 30px rgba(0,0,0,.5);
+  background: linear-gradient(180deg, rgba(6,9,18,.98) 0%, rgba(8,12,24,.97) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(77,214,255,.15);
+  box-shadow: 0 2px 20px rgba(0,0,0,.45);
 }
 
-/* Borde superior decorativo — gradiente neón */
+/* Línea de acento superior */
 .header-v3::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(90deg,
     transparent 0%,
-    #4dd6ff 20%,
+    #4dd6ff 25%,
     #a855f7 50%,
-    #4dd6ff 80%,
+    #4dd6ff 75%,
     transparent 100%);
-  z-index: 1;
   pointer-events: none;
 }
 
-/* === PISO 1: LOGO ROW === */
-.header-top-row {
+/* Barra única */
+.header-single-row {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 10px 28px 6px;
+  height: 56px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 
-/* Zona logo — protagonista total */
-.header-v3 .left {
+/* Ocultar estructuras del header viejo si quedaron */
+.header-top-row,
+.header-nav-row,
+.header-inner { display: none !important; }
+
+/* === NAV PILLS === */
+.center-nav {
   display: flex;
   align-items: center;
-}
-
-.header-v3 .brand {
-  display: flex;
-  align-items: center;
-  position: relative;
-  text-decoration: none;
-}
-
-/* Glow blob detrás del logo */
-.header-v3 .brand::after {
-  content: "";
-  position: absolute;
-  inset: -20px -30px;
-  background: radial-gradient(ellipse at center,
-    rgba(77,214,255,.18) 0%,
-    rgba(168,85,247,.12) 45%,
-    transparent 70%);
-  filter: blur(16px);
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: .8;
-  transition: opacity .3s ease;
-  z-index: -1;
-}
-.header-v3 .brand:hover::after { opacity: 1; }
-
-/* === EL LOGO — GRANDE Y VISIBLE === */
-.header-v3 .logo-img {
-  height: 80px;        /* GRANDE — legible al instante */
-  width: auto;
-  display: block;
-  /* PNG con fondo transparente → glow neón sobre oscuro */
-  filter:
-    drop-shadow(0 0 6px rgba(77,214,255,.9))
-    drop-shadow(0 0 18px rgba(168,85,247,.7))
-    drop-shadow(0 0 38px rgba(77,214,255,.4))
-    drop-shadow(0 3px 12px rgba(0,0,0,.8));
-  transition: height .22s ease, transform .3s ease, filter .3s ease;
-}
-
-.header-v3 .logo-img:hover {
-  transform: scale(1.04) translateY(-2px);
-  filter:
-    drop-shadow(0 0 10px rgba(77,214,255,1))
-    drop-shadow(0 0 26px rgba(168,85,247,.9))
-    drop-shadow(0 0 55px rgba(77,214,255,.55))
-    drop-shadow(0 4px 14px rgba(0,0,0,.9));
-}
-
-/* Zona derecha del piso 1 — WhatsApp + tel */
-.header-v3 .right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header-v3 .btn-whatsapp {
-  border: none;
-  padding: 11px 22px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #25d366, #1aad54);
-  color: #fff;
-  font-family: 'Sora', sans-serif;
-  font-weight: 800;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 4px 18px rgba(37,211,102,.4);
-  transition: transform .18s ease, box-shadow .18s ease;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  letter-spacing: .2px;
-}
-.header-v3 .btn-whatsapp:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(37,211,102,.55);
-}
-
-.header-v3 .phone {
-  font-family: 'Sora', sans-serif;
-  font-weight: 700;
-  font-size: 13px;
-  color: rgba(159,176,208,.9);
-  white-space: nowrap;
-  letter-spacing: .3px;
-}
-
-/* === PISO 2: BARRA DE NAVEGACIÓN === */
-.header-nav-row {
-  background: rgba(255,255,255,.04);
-  border-top: 1px solid rgba(77,214,255,.14);
-  border-bottom: 1px solid rgba(0,0,0,.3);
-}
-
-.header-nav-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  align-items: center;
+  gap: 4px;
+  flex: 1;
   justify-content: center;
-  gap: 4px;
-  height: 46px;
 }
 
-/* Forzar que el header viejo no interfiera */
-.header-v3 .header-inner { display: none; }
-
-/* === NAV PILLS — PISO 2 === */
-.header-v3 .center-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.header-v3 .nav-pill {
-  padding: 8px 18px;
+.nav-pill {
+  padding: 8px 16px;
   border-radius: 10px;
   background: transparent;
   border: 1px solid transparent;
   color: rgba(200,215,245,.85);
   font-family: 'Sora', sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13.5px;
   white-space: nowrap;
+  cursor: pointer;
   transition: all .18s ease;
   position: relative;
+  text-decoration: none;
 }
 
-.header-v3 .nav-pill::after {
+.nav-pill::after {
   content: "";
   position: absolute;
-  bottom: -1px; left: 50%; right: 50%;
+  bottom: 4px; left: 50%; right: 50%;
   height: 2px;
   background: linear-gradient(90deg, #4dd6ff, #a855f7);
   border-radius: 2px;
   transition: left .2s ease, right .2s ease;
 }
 
-.header-v3 .nav-pill:hover {
-  background: rgba(77,214,255,.08);
-  border-color: rgba(77,214,255,.20);
+.nav-pill:hover {
+  background: rgba(77,214,255,.09);
+  border-color: rgba(77,214,255,.22);
   color: #fff;
 }
 
-.header-v3 .nav-pill:hover::after {
-  left: 15%; right: 15%;
-}
+.nav-pill:hover::after { left: 14%; right: 14%; }
 
-.header-v3 .nav-pill.is-active {
-  background: linear-gradient(135deg, rgba(77,214,255,.18), rgba(168,85,247,.15));
-  border-color: rgba(77,214,255,.45);
+.nav-pill.is-active {
+  background: linear-gradient(135deg, rgba(77,214,255,.20), rgba(168,85,247,.16));
+  border-color: rgba(77,214,255,.50);
   color: #fff;
-  box-shadow: 0 2px 14px rgba(77,214,255,.12), inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow: 0 2px 14px rgba(77,214,255,.14);
 }
 
-.header-v3 .nav-pill.is-active::after {
-  left: 10%; right: 10%;
+.nav-pill.is-active::after { left: 10%; right: 10%; }
+
+/* === DERECHA: WhatsApp + Tel === */
+.header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-/* === HAMBURGUESA (MOBILE) === */
+.btn-whatsapp {
+  border: none;
+  padding: 9px 18px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #25d366, #1aad54);
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37,211,102,.38);
+  transition: transform .18s ease, box-shadow .18s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,.52);
+}
+
+.phone {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(159,176,208,.9);
+  white-space: nowrap;
+}
+
+/* === HAMBURGUESA === */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -269,7 +197,7 @@ main { padding-top: 0; }
 .hamburger.is-open span:nth-child(2) { opacity: 0; }
 .hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* === MENÚ MOBILE === */
+/* === MENÚ MÓVIL === */
 .mobile-nav {
   display: none;
   flex-direction: column;
@@ -294,6 +222,7 @@ main { padding-top: 0; }
   font-size: 15px;
   color: rgba(220,232,255,.9);
   transition: background .15s, color .15s;
+  text-decoration: none;
 }
 .mobile-link:hover, .mobile-link.is-active {
   background: rgba(77,214,255,.10);
@@ -307,19 +236,15 @@ main { padding-top: 0; }
   text-align: center;
   padding: 12px;
   color: #fff;
+  font-family: 'Sora', sans-serif;
   font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-/* === SHRINK AL SCROLL — COMPACTO === */
-.header-v3.is-scrolled .header-top-row {
-  padding-top: 6px;
-  padding-bottom: 4px;
-}
-.header-v3.is-scrolled .logo-img {
-  height: 54px;   /* Shrink pero sigue visible */
-}
-.header-v3.is-scrolled .header-nav-inner {
-  height: 38px;
+/* Scroll-margin para el header slim */
+#inicio, #catalogo, #tamano, #personalizado, #contacto {
+  scroll-margin-top: 65px;
 }
 
 
@@ -892,12 +817,14 @@ main { padding-top: 0; }
 }
 
 @media (max-width: 900px) {
-  /* Header mobile: ocultar nav-row, mostrar hamburguesa */
-  .header-nav-row { display: none; }
+  /* Header slim mobile */
+  .center-nav { display: none; }
   .hamburger { display: flex; }
-  .header-v3 .phone { display: none; }
-  .header-v3 .logo-img { height: 60px; }
-  .header-top-row { padding: 8px 16px 6px; }
+  .phone { display: none; }
+  .header-single-row { padding: 0 16px; height: 52px; }
+  /* Hero logo */
+  .hero-logo-box { padding: 14px 16px; }
+  .hero-logo-img { max-width: 280px; }
 
   .grid { grid-template-columns: 1fr 1fr; }
   .cat-gallery { grid-template-columns: repeat(2, 1fr); }
@@ -919,4 +846,66 @@ main { padding-top: 0; }
   .why-grid { grid-template-columns: 1fr 1fr; }
   .hero-v2 { margin: 8px; }
   .hero-content { padding: 40px 16px; }
+}
+/* =============================================
+   HERO — Logo en recuadro grande + info abajo
+   ============================================= */
+
+/* hero-right ahora es columna */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+/* RECUADRO GRANDE DEL LOGO */
+.hero-logo-box {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(77,214,255,.30);
+  border-radius: 20px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 30px rgba(77,214,255,.12),
+    0 0 60px rgba(124,92,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+
+.hero-logo-box:hover {
+  border-color: rgba(77,214,255,.55);
+  box-shadow:
+    0 0 45px rgba(77,214,255,.22),
+    0 0 80px rgba(124,92,255,.14),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  /* PNG con fondo transparente — glow neón */
+  filter:
+    drop-shadow(0 0 8px rgba(77,214,255,.8))
+    drop-shadow(0 0 20px rgba(168,85,247,.6))
+    drop-shadow(0 0 40px rgba(77,214,255,.35));
+  transition: filter .3s ease, transform .3s ease;
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.02);
+  filter:
+    drop-shadow(0 0 12px rgba(77,214,255,1))
+    drop-shadow(0 0 28px rgba(168,85,247,.85))
+    drop-shadow(0 0 55px rgba(77,214,255,.5));
+}
+
+/* RECUADRO INFO (abajo del logo) — más compacto */
+.hero-box-right {
+  width: 100%;
 }

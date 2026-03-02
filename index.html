@@ -17,19 +17,23 @@
 </head>
 <body id="top">
 
-  <!-- HEADER -->
+  <!-- HEADER: UNA SOLA BARRA — Nav + WhatsApp (SIN LOGO) -->
   <header class="header header-v3">
+    <div class="header-single-row">
 
-    <!-- PISO 1: LOGO GRANDE + WHATSAPP -->
-    <div class="header-top-row">
-      <div class="left">
-        <a href="#top" class="brand" aria-label="Inicio SK Publicidad">
-          <img src="imagenes/logo_final.png" alt="SK Publicidad – Cuadros en placa de aluminio" class="logo-img">
-        </a>
-      </div>
-      <div class="right">
+      <!-- NAV CENTRAL -->
+      <nav class="center-nav" aria-label="Navegación principal">
+        <a class="nav-pill" href="#inicio"        data-link="inicio">Inicio</a>
+        <a class="nav-pill" href="#catalogo"      data-link="catalogo">Catálogo</a>
+        <a class="nav-pill" href="#tamano"        data-link="tamano">📐 Tamaño</a>
+        <a class="nav-pill" href="#personalizado" data-link="personalizado">Personalizado</a>
+        <a class="nav-pill" href="#contacto"      data-link="contacto">Contacto</a>
+      </nav>
+
+      <!-- DERECHA: WhatsApp + Teléfono -->
+      <div class="header-right-group">
         <button class="btn-whatsapp" id="btnTopWa" type="button">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L.057 23.09a.75.75 0 00.921.921l5.243-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.25-1.385l-.371-.214-3.843 1.075 1.075-3.843-.214-.371A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L.057 23.09a.75.75 0 00.921.921l5.243-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.25-1.385l-.371-.214-3.843 1.075 1.075-3.843-.214-.371A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           WhatsApp
         </button>
         <div class="phone">📞 99 800 6243</div>
@@ -37,17 +41,7 @@
           <span></span><span></span><span></span>
         </button>
       </div>
-    </div>
 
-    <!-- PISO 2: NAVEGACIÓN -->
-    <div class="header-nav-row">
-      <nav class="header-nav-inner center-nav" aria-label="Navegación principal">
-        <a class="nav-pill" href="#inicio"        data-link="inicio">Inicio</a>
-        <a class="nav-pill" href="#catalogo"      data-link="catalogo">Catálogo</a>
-        <a class="nav-pill" href="#tamano"        data-link="tamano">📐 Tamaño</a>
-        <a class="nav-pill" href="#personalizado" data-link="personalizado">Personalizado</a>
-        <a class="nav-pill" href="#contacto"      data-link="contacto">Contacto</a>
-      </nav>
     </div>
 
     <!-- MENÚ MÓVIL -->
@@ -59,7 +53,6 @@
       <a class="mobile-link" href="#contacto">Contacto</a>
       <button class="mobile-wa" id="btnMobileWa" type="button">💬 Cotizar por WhatsApp</button>
     </nav>
-
   </header>
 
   <main>
@@ -68,6 +61,7 @@
     <section id="inicio" class="hero hero-v2">
       <div class="hero-overlay"></div>
       <div class="hero-content container">
+
         <div class="hero-left">
           <span class="badge">✨ Acabado premium · Durabilidad · Personalización</span>
           <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
@@ -90,7 +84,17 @@
             <div class="hero-badge-bottom">⏳ Entregas rápidas en Quito — cupos semanales limitados</div>
           </div>
         </div>
+
         <div class="hero-right">
+
+          <!-- RECUADRO GRANDE: LOGO (arriba) -->
+          <div class="hero-logo-box">
+            <img src="imagenes/logo_final.png"
+                 alt="SK Publicidad – Cuadros en placa de aluminio"
+                 class="hero-logo-img">
+          </div>
+
+          <!-- RECUADRO INFO (abajo) -->
           <div class="hero-card hero-box hero-box-right">
             <h3>✔ +500 clientes satisfechos</h3>
             <p>✔ Garantía de calidad y durabilidad</p>
@@ -105,6 +109,7 @@
               <div class="stat"><span class="stat-num">48h</span><span class="stat-lbl">Entrega</span></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>

@@ -176,7 +176,21 @@ const CATALOG = {
     { src: "imagenes/catalogo/videojuegos/vid12.jpg" },
   ],
   "marvel-dc": [
-    { src: "imagenes/catalogo/marvel-dc/marvel1.png" }
+    { src: "imagenes/catalogo/marvel-dc/marvel.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel1.png" },
+    { src: "imagenes/catalogo/marvel-dc/marvel2.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marve3.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel4.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel5.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel6.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel7.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel8.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel9.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel10.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel11.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel12.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel13.jpg" },
+    { src: "imagenes/catalogo/marvel-dc/marvel14.jpg" }
   ],
   "dibujos": [
     { src: "imagenes/catalogo/dibujos/d1.png" }
@@ -247,6 +261,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

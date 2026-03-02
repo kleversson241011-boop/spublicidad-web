@@ -136,7 +136,8 @@ window.addEventListener("load", setupActiveMenu);
 // ===== Catálogo por categorías (galería) =====
 const CATALOG = {
   "deportes": [
-    { src: "imagenes/catalogo/deportes/messi.png" }
+    { src: "imagenes/catalogo/deportes/messi.png" },
+    { src: "imagenes/catalogo/deportes/messi_magic.png"}
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
@@ -216,3 +217,4 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+

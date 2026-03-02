@@ -138,7 +138,11 @@ const CATALOG = {
   "deportes": [
     { src: "imagenes/catalogo/deportes/messi.png" },
     { src: "imagenes/catalogo/deportes/messi_magic.jpg"},
-    { src: "imagenes/catalogo/deportes/cr7.jpg" }
+    { src: "imagenes/catalogo/deportes/cr7.jpg" },
+    { src: "imagenes/catalogo/deportes/cr7_1.jpg" },
+    { src: "imagenes/catalogo/deportes/cr7_2.jpg" },
+    { src: "imagenes/catalogo/deportes/cr7_3.jpg" },
+    { src: "imagenes/catalogo/deportes/ronaldo.jpg" }
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" }
@@ -218,6 +222,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

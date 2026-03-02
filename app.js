@@ -285,3 +285,36 @@ window.addEventListener("load", setupCatalogTabs);
 
 
 
+
+
+// ===== HAMBURGUESA MENÚ MÓVIL =====
+(function setupHamburger() {
+  const btn = document.getElementById("hamburger");
+  const nav = document.getElementById("mobileNav");
+  const mobileWa = document.getElementById("btnMobileWa");
+
+  if (!btn || !nav) return;
+
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    btn.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", open);
+    nav.setAttribute("aria-hidden", !open);
+  });
+
+  // Cerrar al hacer clic en link
+  nav.querySelectorAll("a.mobile-link").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      btn.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Botón WA en menú móvil
+  if (mobileWa) {
+    mobileWa.addEventListener("click", () => {
+      openWhatsApp("Hola, quiero cotizar un cuadro en placa de aluminio (SK PUBLICIDAD).");
+    });
+  }
+})();

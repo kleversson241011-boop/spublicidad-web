@@ -161,7 +161,19 @@ const CATALOG = {
     { src: "imagenes/catalogo/anime/anime12.jpg" }, 
   ],
   "videojuegos": [
-    { src: "imagenes/catalogo/videojuegos/vid1.png" }
+    { src: "imagenes/catalogo/videojuegos/vid.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid1.png" },
+    { src: "imagenes/catalogo/videojuegos/vid2.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid3.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid4.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid5.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid6.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid7.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid8.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid9.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid10.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid11.jpg" },
+    { src: "imagenes/catalogo/videojuegos/vid12.jpg" },
   ],
   "marvel-dc": [
     { src: "imagenes/catalogo/marvel-dc/marvel1.png" }
@@ -235,6 +247,7 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
+
 
 
 

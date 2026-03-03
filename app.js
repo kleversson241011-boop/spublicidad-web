@@ -119,7 +119,7 @@ window.addEventListener("load", setupActiveMenu);
 // ===== Catálogo por categorías (galería) =====
 const CATALOG = {
   "deportes": [
-    { src: "imagenes/catalogo/deportes/messi.png" },
+    { src: "imagenes/catalogo/deportes/messi.jpg" },
     { src: "imagenes/catalogo/deportes/messi_magic.jpg" },
     { src: "imagenes/catalogo/deportes/cr7.jpg" },
     { src: "imagenes/catalogo/deportes/cr7_1.jpg" },
@@ -486,6 +486,7 @@ window.addEventListener("load", setupCatalogTabs);
     });
   }
 })();
+
 
 
 

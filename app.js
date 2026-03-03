@@ -206,7 +206,7 @@ const CATALOG = {
   ],
   "peliculas": [
     { src: "imagenes/catalogo/peliculas/peli.jpg" },
-    { src: "imagenes/catalogo/peliculas/peli1.png" },
+    { src: "imagenes/catalogo/peliculas/peli1.jpg" },
     { src: "imagenes/catalogo/peliculas/peli2.jpg" },
     { src: "imagenes/catalogo/peliculas/peli3.jpg" },
     { src: "imagenes/catalogo/peliculas/peli4.jpg" },
@@ -218,7 +218,12 @@ const CATALOG = {
     { src: "imagenes/catalogo/peliculas/peli10.jpg" },
   ],
   "naturaleza": [
-    { src: "imagenes/catalogo/naturaleza/nat1.png" }
+    { src: "imagenes/catalogo/naturaleza/nat.jpg" },
+    { src: "imagenes/catalogo/naturaleza/nat1.jpg" },
+    { src: "imagenes/catalogo/naturaleza/nat2.jpg" },
+    { src: "imagenes/catalogo/naturaleza/nat3.jpg" },
+    { src: "imagenes/catalogo/naturaleza/nat4.jpg" },
+    { src: "imagenes/catalogo/naturaleza/nat5.jpg" },     
   ]
 };
 
@@ -330,5 +335,6 @@ window.addEventListener("load", setupCatalogTabs);
 })();
 
 // v1772500753
+
 
 

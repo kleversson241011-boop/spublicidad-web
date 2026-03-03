@@ -1,308 +1,912 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SK PUBLICIDAD | Cuadros en Placa de Aluminio</title>
-  <meta name="description" content="SK PUBLICIDAD: cuadros en placa de aluminio. Diseño personalizado, alta durabilidad y entrega rápida en Quito. +500 clientes satisfechos." />
-  <meta property="og:title" content="SK PUBLICIDAD | Cuadros en Placa de Aluminio" />
-  <meta property="og:description" content="Convierte tu pared en arte. Impresión HD en aluminio, diseño personalizado. Entrega rápida en Quito." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="imagenes/logo_final.png" />
-  <link rel="icon" type="image/png" href="imagenes/logo_final.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body id="top">
+/* ===== VARIABLES ===== */
+:root {
+  --bg: #0b1020;
+  --text: #ecf2ff;
+  --muted: #9fb0d0;
+  --line: rgba(255,255,255,.12);
+  --brand: #4dd6ff;
+  --brand2: #7c5cff;
+  --radius: 18px;
+}
 
-  <!-- HEADER: UNA SOLA BARRA — Nav + WhatsApp (SIN LOGO) -->
-  <header class="header header-v3">
-    <div class="header-single-row">
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-      <!-- NAV CENTRAL -->
-      <nav class="center-nav" aria-label="Navegación principal">
-        <a class="nav-pill" href="#inicio"        data-link="inicio">Inicio</a>
-        <a class="nav-pill" href="#catalogo"      data-link="catalogo">Catálogo</a>
-        <a class="nav-pill" href="#tamano"        data-link="tamano">📐 Tamaño</a>
-        <a class="nav-pill" href="#personalizado" data-link="personalizado">Personalizado</a>
-        <a class="nav-pill" href="#contacto"      data-link="contacto">Contacto</a>
-      </nav>
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 500px at 20% -10%, rgba(124,92,255,.25), transparent 60%),
+    radial-gradient(900px 450px at 90% 0%, rgba(77,214,255,.18), transparent 55%),
+    linear-gradient(180deg, var(--bg), #070b16);
+  color: var(--text);
+}
 
-      <!-- DERECHA: WhatsApp + Teléfono -->
-      <div class="header-right-group">
-        <button class="btn-whatsapp" id="btnTopWa" type="button">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L.057 23.09a.75.75 0 00.921.921l5.243-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.25-1.385l-.371-.214-3.843 1.075 1.075-3.843-.214-.371A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          WhatsApp
-        </button>
-        <div class="phone">📞 99 800 6243</div>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" type="button">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
+.muted { color: var(--muted); }
+.h2 { margin: 0 0 10px; font-family: 'Sora', sans-serif; font-size: 26px; font-weight: 800; }
+.text-center { text-align: center; }
+main { padding-top: 0; }
 
-    </div>
+/* Scroll margin para anclas */
+#inicio, #catalogo, #tamano, #personalizado, #contacto {
+  scroll-margin-top: 90px;
+}
 
-    <!-- MENÚ MÓVIL -->
-    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
-      <a class="mobile-link" href="#inicio">Inicio</a>
-      <a class="mobile-link" href="#catalogo">Catálogo</a>
-      <a class="mobile-link" href="#tamano">📐 Tamaño y Precios</a>
-      <a class="mobile-link" href="#personalizado">Personalizado</a>
-      <a class="mobile-link" href="#contacto">Contacto</a>
-      <button class="mobile-wa" id="btnMobileWa" type="button">💬 Cotizar por WhatsApp</button>
-    </nav>
-  </header>
+/* ===== HEADER — COMPACTO ===== */
+/* =============================================
+   HEADER — BARRA ÚNICA: Nav + WhatsApp
+   ============================================= */
 
-  <main>
+.header-v3 {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: linear-gradient(180deg, rgba(6,9,18,.98) 0%, rgba(8,12,24,.97) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(77,214,255,.15);
+  box-shadow: 0 2px 20px rgba(0,0,0,.45);
+}
 
-    <!-- INICIO (HERO) -->
-    <section id="inicio" class="hero hero-v2">
-      <div class="hero-overlay"></div>
-      <div class="hero-content container">
+/* Línea de acento superior */
+.header-v3::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #4dd6ff 25%,
+    #a855f7 50%,
+    #4dd6ff 75%,
+    transparent 100%);
+  pointer-events: none;
+}
 
-        <div class="hero-left">
-          <span class="badge">✨ Acabado premium · Durabilidad · Personalización</span>
-          <h1>Cuadros en placa de aluminio que elevan tu espacio.</h1>
-          <p class="hero-sub">
-            Convierte cualquier pared en una experiencia visual inolvidable.
-            <strong>SK PUBLICIDAD:</strong> Diseños modernos, impresión en alta definición y entrega rápida en Quito.
-          </p>
-          <div class="hero-actions">
-            <a href="#catalogo" class="btn">🔍 Ver catálogo</a>
-            <button class="btn primary" type="button" onclick="openWhatsApp('Hola, quiero cotizar un cuadro en placa de aluminio.')">
-              ✉️ Cotizar ahora
-            </button>
-          </div>
-          <div class="hero-box hero-box-left">
-            <ul class="hero-benefits">
-              <li>✔ Material premium que no se deforma ni pierde color</li>
-              <li>✔ Impresión HD que resalta cada detalle</li>
-              <li>✔ Listo para instalar y lucir espectacular</li>
-            </ul>
-            <div class="hero-badge-bottom">⏳ Entregas rápidas en Quito — cupos semanales limitados</div>
-          </div>
-        </div>
+/* Barra única */
+.header-single-row {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 56px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
 
-        <div class="hero-right">
+/* Ocultar estructuras del header viejo si quedaron */
+.header-top-row,
+.header-nav-row,
+.header-inner { display: none !important; }
 
-          <!-- RECUADRO GRANDE: LOGO (arriba) -->
-          <div class="hero-logo-box">
-            <img src="imagenes/logo_final.png"
-                 alt="SK Publicidad – Cuadros en placa de aluminio"
-                 class="hero-logo-img">
-          </div>
+/* === NAV PILLS === */
+.center-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
 
-          <!-- RECUADRO INFO (abajo) -->
-          <div class="hero-card hero-box hero-box-right">
-            <h3>✔ +500 clientes satisfechos</h3>
-            <p>✔ Garantía de calidad y durabilidad</p>
-            <div class="hero-email">
-              <span class="mail-icon">✉</span>
-              <strong>spublicidad02@gmail.com</strong>
-            </div>
-            <p class="idea-text">¿Tienes una idea? La convertimos en arte.</p>
-            <div class="hero-stats">
-              <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Clientes</span></div>
-              <div class="stat"><span class="stat-num">7</span><span class="stat-lbl">Categorías</span></div>
-              <div class="stat"><span class="stat-num">48h</span><span class="stat-lbl">Entrega</span></div>
-            </div>
-          </div>
+.nav-pill {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgba(200,215,245,.85);
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .18s ease;
+  position: relative;
+  text-decoration: none;
+}
 
-        </div>
-      </div>
-    </section>
+.nav-pill::after {
+  content: "";
+  position: absolute;
+  bottom: 4px; left: 50%; right: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, #4dd6ff, #a855f7);
+  border-radius: 2px;
+  transition: left .2s ease, right .2s ease;
+}
 
-    <!-- POR QUÉ ELEGIRNOS -->
-    <section class="section section-why">
-      <div class="container">
-        <h2 class="h2 text-center">¿Por qué elegirnos?</h2>
-        <p class="muted text-center">Lo que nos diferencia de la competencia</p>
-        <div class="why-grid">
-          <div class="why-card"><div class="why-icon">🏆</div><h4>Calidad garantizada</h4><p>Aluminio premium que resiste el tiempo, la humedad y la luz solar sin perder colores.</p></div>
-          <div class="why-card"><div class="why-icon">🚀</div><h4>Entrega rápida</h4><p>Producción y entrega en Quito en tiempo récord. Coordinamos la entrega a domicilio.</p></div>
-          <div class="why-card"><div class="why-icon">🎨</div><h4>Diseño a tu medida</h4><p>Enviamos vista previa digital antes de producir. Aprobas el diseño sin costo adicional.</p></div>
-          <div class="why-card"><div class="why-icon">💬</div><h4>Atención personalizada</h4><p>Te atendemos directamente por WhatsApp. Sin formularios, sin esperas.</p></div>
-        </div>
-      </div>
-    </section>
+.nav-pill:hover {
+  background: rgba(77,214,255,.09);
+  border-color: rgba(77,214,255,.22);
+  color: #fff;
+}
 
-    <!-- CATÁLOGO -->
-    <section id="catalogo" class="section">
-      <div class="container">
-        <h2 class="h2">Catálogo</h2>
-        <p class="muted">Elige una categoría para ver modelos.</p>
-        <div class="cat-tabs" aria-label="Categorías del catálogo">
-          <button class="cat-tab" type="button" data-tab="deportes">⚽ Deportes</button>
-          <button class="cat-tab" type="button" data-tab="anime">🎌 Anime</button>
-          <button class="cat-tab" type="button" data-tab="videojuegos">🎮 VideoJuegos</button>
-          <button class="cat-tab" type="button" data-tab="marvel-dc">🦸 Marvel&DC</button>
-          <button class="cat-tab" type="button" data-tab="dibujos">✏️ Dibujos</button>
-          <button class="cat-tab" type="button" data-tab="peliculas">🎬 Películas</button>
-          <button class="cat-tab" type="button" data-tab="naturaleza">🌿 Naturaleza</button>
-        </div>
-        <div id="catGallery" class="cat-gallery" aria-live="polite"></div>
-      </div>
-    </section>
+.nav-pill:hover::after { left: 14%; right: 14%; }
 
-    <!-- TAMAÑOS Y PRECIOS -->
-    <section id="tamano" class="section">
-      <div class="container">
-        <h2 class="h2">Tamaños y Precios</h2>
-        <p class="muted">Selecciona el formato que mejor se adapte a tu espacio.</p>
-        <div class="grid">
-          <article class="card">
-            <h3>A0 · 841 × 594 mm</h3>
-            <p class="muted">Impacto visual (locales / salas)</p>
-            <p class="price">$ 240</p>
-            <button class="btn buy" data-product="Cuadro en aluminio A0 (841×594) - $240">Comprar por WhatsApp</button>
-          </article>
-          <article class="card">
-            <h3>A1 · 594 × 841 mm</h3>
-            <p class="muted">Oficinas y decoración moderna</p>
-            <p class="price">$ 120</p>
-            <button class="btn buy" data-product="Cuadro en aluminio A1 (594×841) - $120">Comprar por WhatsApp</button>
-          </article>
-          <article class="card card-popular">
-            <div class="popular-badge">⭐ Más popular</div>
-            <h3>A2 · 420 × 594 mm</h3>
-            <p class="muted">Balance ideal tamaño/precio</p>
-            <p class="price">$ 60</p>
-            <button class="btn buy primary" data-product="Cuadro en aluminio A2 (420×594) - $60">Comprar por WhatsApp</button>
-          </article>
-          <article class="card">
-            <h3>A3 · 297 × 420 mm</h3>
-            <p class="muted">Regalos o decoración</p>
-            <p class="price">$ 30</p>
-            <button class="btn buy" data-product="Cuadro en aluminio A3 (297×420) - $30">Comprar por WhatsApp</button>
-          </article>
-          <article class="card">
-            <h3>A4 · 297 × 210 mm</h3>
-            <p class="muted">Pequeño, moderno y accesible</p>
-            <p class="price">$ 15</p>
-            <button class="btn buy" data-product="Cuadro en aluminio A4 (297×210) - $15">Comprar por WhatsApp</button>
-          </article>
-          <article class="card">
-            <h3>Personalizado</h3>
-            <p class="muted">Envíanos tu foto/idea y el formato</p>
-            <p class="price">Según formato</p>
-            <button class="btn buy" data-product="Cuadro personalizado en aluminio - Quiero cotizar (indico formato y diseño)">Cotizar por WhatsApp</button>
-          </article>
-        </div>
-        <div class="note" style="margin-top:14px;">
-          Los precios corresponden al formato indicado. Para diseño personalizado confirmamos detalles por WhatsApp.
-        </div>
-      </div>
-    </section>
+.nav-pill.is-active {
+  background: linear-gradient(135deg, rgba(77,214,255,.20), rgba(168,85,247,.16));
+  border-color: rgba(77,214,255,.50);
+  color: #fff;
+  box-shadow: 0 2px 14px rgba(77,214,255,.14);
+}
 
-    <!-- PERSONALIZADO -->
-    <section id="personalizado" class="section">
-      <div class="container">
-        <h2 class="h2">Personalizado</h2>
-        <p class="muted">Envíanos tu idea (logo/foto), formato y te confirmamos precio y tiempos.</p>
-        <div class="steps">
-          <div class="step"><b>1</b><div><strong>Envía tu idea</strong><span>Tu foto, logo o referencia + el tamaño que deseas.</span></div></div>
-          <div class="step"><b>2</b><div><strong>Vista previa</strong><span>Te enviamos un mockup digital para que apruebes el diseño.</span></div></div>
-          <div class="step"><b>3</b><div><strong>Aprobación</strong><span>Confirmas el diseño y comenzamos la producción.</span></div></div>
-          <div class="step"><b>4</b><div><strong>Entrega en Quito</strong><span>Coordinamos entrega a domicilio o retiro en local.</span></div></div>
-        </div>
-        <div style="text-align:center; margin-top:28px;">
-          <button class="btn primary btn-lg" type="button"
-            onclick="openWhatsApp('Hola, quiero hacer un cuadro personalizado en placa de aluminio. Me gustaría saber precio y tiempo de entrega.')">
-            💬 Quiero mi cuadro personalizado
-          </button>
-        </div>
-      </div>
-    </section>
+.nav-pill.is-active::after { left: 10%; right: 10%; }
 
-    <!-- TESTIMONIOS -->
-    <section class="section section-testimonios">
-      <div class="container">
-        <h2 class="h2 text-center">Lo que dicen nuestros clientes</h2>
-        <p class="muted text-center">+500 personas satisfechas en Quito y Ecuador</p>
-        <div class="testimonios-grid">
-          <div class="testimonio-card">
-            <div class="stars">★★★★★</div>
-            <p>"El cuadro que pedí para mi hijo quedó espectacular. Los colores son brillantes y el material se ve de muy buena calidad. Lo recomiendo 100%."</p>
-            <div class="testimonio-autor"><div class="autor-avatar">JL</div><div><strong>José L.</strong><span>Quito Norte</span></div></div>
-          </div>
-          <div class="testimonio-card">
-            <div class="stars">★★★★★</div>
-            <p>"Pedí un cuadro personalizado con la foto de mi bebé y quedó mejor de lo que esperaba. La entrega fue rápida y el servicio muy atento."</p>
-            <div class="testimonio-autor"><div class="autor-avatar">MR</div><div><strong>María R.</strong><span>Valle de los Chillos</span></div></div>
-          </div>
-          <div class="testimonio-card">
-            <div class="stars">★★★★★</div>
-            <p>"Compré cuadros de anime para decorar mi habitación. La impresión es increíble, los detalles se ven perfectos. Ya tengo pedido el segundo."</p>
-            <div class="testimonio-autor"><div class="autor-avatar">AV</div><div><strong>Andrés V.</strong><span>Centro de Quito</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+/* === DERECHA: WhatsApp + Tel === */
+.header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
-    <!-- CONTACTO -->
-    <section id="contacto" class="section">
-      <div class="container">
-        <h2 class="h2">Contacto</h2>
-        <p class="muted">Escríbenos y cuéntanos qué formato necesitas. Te respondemos por WhatsApp.</p>
-        <div class="contact-grid">
-          <div class="panel">
-            <h3>Datos</h3>
-            <p class="muted">
-              <b>SK PUBLICIDAD</b><br>
-              📍 Quito, Ecuador<br>
-              🕒 Lunes a sábado · 09:00–18:00<br>
-              📞 99 800 6243<br>
-              ✉️ spublicidad02@gmail.com
-            </p>
-            <div class="contact-socials">
-              <a href="https://wa.me/593998006243" target="_blank" rel="noopener" class="social-btn wa-btn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L.057 23.09a.75.75 0 00.921.921l5.243-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.25-1.385l-.371-.214-3.843 1.075 1.075-3.843-.214-.371A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-                WhatsApp
-              </a>
-              <a href="https://instagram.com/skpublicidad" target="_blank" rel="noopener" class="social-btn ig-btn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                Instagram
-              </a>
-            </div>
-          </div>
-          <div class="panel">
-            <h3>Mensaje</h3>
-            <form id="formCotizacion">
-              <input id="nombre" placeholder="Tu nombre" required>
-              <input id="tel" placeholder="Tu WhatsApp (opcional)">
-              <textarea id="msg" placeholder="Ej: quiero un cuadro A2 con mi logo..." required></textarea>
-              <button class="btn primary" type="submit">💬 Enviar por WhatsApp</button>
-              <p class="muted small">Se abrirá WhatsApp con tu mensaje listo.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+.btn-whatsapp {
+  border: none;
+  padding: 9px 18px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #25d366, #1aad54);
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37,211,102,.38);
+  transition: transform .18s ease, box-shadow .18s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37,211,102,.52);
+}
 
-  </main>
+.phone {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: rgba(159,176,208,.9);
+  white-space: nowrap;
+}
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">
-        <img src="imagenes/logo_final.png" alt="SK Publicidad" height="48"
-             style="filter:drop-shadow(0 0 8px rgba(77,214,255,.5)); mix-blend-mode:screen;">
-      </div>
-      <p>© <span id="year"></span> SK PUBLICIDAD · Quito, Ecuador · Ventas y cotizaciones por WhatsApp</p>
-      <div class="footer-links">
-        <a href="https://wa.me/593998006243" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://instagram.com/skpublicidad" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:spublicidad02@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
+/* === HAMBURGUESA === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 9px 10px;
+  transition: background .18s;
+}
+.hamburger:hover { background: rgba(255,255,255,.12); }
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ecf2ff;
+  border-radius: 2px;
+  transition: all .25s ease;
+}
+.hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2) { opacity: 0; }
+.hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  <button class="wa-float" id="waFloat" aria-label="Cotizar por WhatsApp">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.847L.057 23.09a.75.75 0 00.921.921l5.243-1.467A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.7-.504-5.25-1.385l-.371-.214-3.843 1.075 1.075-3.843-.214-.371A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-    Cotiza ahora
-  </button>
+/* === MENÚ MÓVIL === */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 10px 20px 16px;
+  gap: 3px;
+  background: rgba(6,9,18,.98);
+  border-top: 1px solid rgba(77,214,255,.12);
+  animation: slideDown .22s ease;
+}
+.mobile-nav.is-open { display: flex; }
 
-  <script src="app.js" defer></script>
-</body>
-</html>
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-link {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: rgba(220,232,255,.9);
+  transition: background .15s, color .15s;
+  text-decoration: none;
+}
+.mobile-link:hover, .mobile-link.is-active {
+  background: rgba(77,214,255,.10);
+  color: #4dd6ff;
+}
+.mobile-wa {
+  margin-top: 8px;
+  background: linear-gradient(135deg, rgba(37,211,102,.18), rgba(29,168,81,.14));
+  border: 1px solid rgba(37,211,102,.3);
+  border-radius: 14px;
+  text-align: center;
+  padding: 12px;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Scroll-margin para el header slim */
+#inicio, #catalogo, #tamano, #personalizado, #contacto {
+  scroll-margin-top: 65px;
+}
+
+
+/* ===== BOTONES ===== */
+.btn {
+  padding: 11px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.08);
+  color: var(--text);
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.25); }
+
+.btn.primary {
+  border: none;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 18px;
+}
+
+/* ===== SECCIONES ===== */
+.section { padding: 36px 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  background: rgba(16,26,51,.65);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,.3); }
+.card h3 { margin: 0 0 8px; font-family: 'Sora', sans-serif; font-size: 16px; }
+
+/* Tarjeta popular */
+.card-popular {
+  border-color: rgba(77,214,255,.45);
+  background: rgba(16,30,60,.75);
+  box-shadow: 0 0 30px rgba(77,214,255,.12);
+}
+
+.popular-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  font-family: 'Sora', sans-serif;
+}
+
+.price { font-family: 'Sora', sans-serif; font-weight: 900; font-size: 22px; margin: 10px 0 12px; color: var(--brand); }
+.buy { width: 100%; }
+
+.note {
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  border-radius: 14px;
+  padding: 12px 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== CATÁLOGO ===== */
+.cat-tabs {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 2px;
+  scrollbar-width: none;
+}
+.cat-tabs::-webkit-scrollbar { display: none; }
+
+.cat-tab {
+  flex: 0 0 auto;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--text);
+  transition: background .18s ease, border-color .18s ease;
+}
+.cat-tab.is-active {
+  background: linear-gradient(135deg, rgba(77,214,255,.25), rgba(124,92,255,.22));
+  border-color: rgba(77,214,255,.45);
+}
+
+.cat-gallery {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.cat-item {
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(16,26,51,.55);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .2s ease;
+}
+.cat-item:hover { transform: translateY(-3px); }
+
+.cat-item .img-box {
+  width: 100%;
+  height: 250px;
+  background: rgba(0,0,0,.20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cat-item .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cat-item .cat-cap {
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== HERO ===== */
+.hero-v2 {
+  position: relative;
+  margin: 14px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.15), transparent 40%),
+    linear-gradient(135deg, #3b6bff, #7c3aed);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 400px at 80% 30%, rgba(255,255,255,.22), transparent 60%);
+  opacity: .4;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.15);
+  font-weight: 700;
+  font-size: 12px;
+  font-family: 'Sora', sans-serif;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  padding: 60px 20px;
+  align-items: center;
+}
+
+.hero-left h1 {
+  margin: 16px 0;
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.hero-sub {
+  max-width: 720px;
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,.92);
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-benefits {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.hero-benefits li {
+  margin-bottom: 8px;
+  color: rgba(255,255,255,.92);
+}
+
+.hero-badge-bottom {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.25);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.hero-right { display: flex; justify-content: center; }
+
+.hero-card {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.30);
+}
+.hero-card h3 { margin-top: 0; font-family: 'Sora', sans-serif; font-weight: 800; }
+
+.hero-email {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.mail-icon { font-size: 16px; }
+.idea-text { margin-top: 12px; font-weight: 600; color: rgba(255,255,255,.85); font-size: 14px; }
+
+/* Redes sociales */
+.hero-socials, .contact-socials, .footer-social {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .18s ease, transform .18s ease;
+}
+.social-btn:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+
+.hero-box {
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.20);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0,0,0,.22);
+}
+.hero-box-left { margin-top: 18px; padding: 16px 18px; }
+.hero-box-right { width: 100%; }
+
+/* ===== POR QUÉ ELEGIRNOS ===== */
+.section-why {
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.why-card {
+  background: rgba(16,26,51,.6);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.why-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(77,214,255,.12); }
+.why-icon { font-size: 32px; margin-bottom: 10px; }
+.why-card h4 { margin: 0 0 8px; font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 800; }
+.why-card p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ===== COMPARACIÓN VISUAL TAMAÑOS ===== */
+.size-visual {
+  margin: 18px 0 24px;
+  background: rgba(16,26,51,.5);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.size-ref {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.size-person { font-size: 48px; line-height: 1; flex-shrink: 0; }
+
+.size-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.size-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(77,214,255,.25), rgba(124,92,255,.20));
+  border: 1px solid rgba(77,214,255,.25);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+  transition: background .2s;
+}
+.size-bar:hover { background: linear-gradient(90deg, rgba(77,214,255,.4), rgba(124,92,255,.35)); }
+
+.size-bar.s0 { width: 100%; height: 44px; }
+.size-bar.s1 { width: 72%; height: 37px; }
+.size-bar.s2 { width: 52%; height: 32px; background: linear-gradient(90deg, rgba(77,214,255,.45), rgba(124,92,255,.40)); border-color: rgba(77,214,255,.55); }
+.size-bar.s3 { width: 36%; height: 26px; }
+.size-bar.s4 { width: 24%; height: 20px; font-size: 11px; }
+
+/* ===== TAMAÑO SECCIÓN ===== */
+#tamano {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(77,214,255,.12);
+  border-bottom: 1px solid rgba(124,92,255,.12);
+  background:
+    radial-gradient(700px 350px at 20% 0%, rgba(77,214,255,.08), transparent 70%),
+    radial-gradient(700px 350px at 80% 100%, rgba(124,92,255,.08), transparent 70%),
+    linear-gradient(180deg, rgba(16,26,51,.75), rgba(10,16,30,.85));
+}
+
+/* ===== PERSONALIZADO ===== */
+.section-personalizado {
+  background: rgba(255,255,255,.02);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.step {
+  background: rgba(16,26,51,.65);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.step b {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(77,214,255,.3), rgba(124,92,255,.25));
+  border: 1px solid rgba(77,214,255,.35);
+  font-family: 'Sora', sans-serif;
+  font-weight: 900;
+}
+.step div { display: flex; flex-direction: column; gap: 4px; }
+.step strong { font-size: 14px; font-weight: 800; }
+.step span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+.personalizado-cta {
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* ===== TESTIMONIOS ===== */
+.section-testimonios {
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.testimonio-card {
+  background: rgba(16,26,51,.65);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform .2s ease;
+}
+.testimonio-card:hover { transform: translateY(-3px); }
+
+.stars { color: #fbbf24; font-size: 16px; letter-spacing: 2px; }
+
+.testimonio-card p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(236,242,255,.85);
+  line-height: 1.6;
+  font-style: italic;
+  flex: 1;
+}
+
+.testimonio-autor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.autor-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.testimonio-autor div {
+  display: flex;
+  flex-direction: column;
+}
+.testimonio-autor strong { font-size: 14px; font-weight: 800; }
+.testimonio-autor span { font-size: 12px; color: var(--muted); }
+
+/* ===== CONTACTO ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.panel {
+  background: rgba(16,26,51,.65);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.panel h3 { margin: 0 0 10px; font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 800; }
+
+#formCotizacion input,
+#formCotizacion textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .18s ease;
+}
+#formCotizacion input:focus,
+#formCotizacion textarea:focus {
+  border-color: rgba(77,214,255,.45);
+}
+#formCotizacion textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.small { font-size: 12px; opacity: .8; }
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: rgba(236,242,255,.85);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.footer-logo img { opacity: .85; filter: drop-shadow(0 0 6px rgba(77,214,255,.3)); }
+.footer-text { font-size: 13px; text-align: center; line-height: 1.6; }
+.footer-social { display: flex; gap: 8px; }
+
+/* ===== BOTÓN FLOTANTE ===== */
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 99999;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(77,214,255,.35);
+  transition: transform .18s ease, box-shadow .18s ease;
+  animation: pulseFloat 2.5s infinite;
+}
+.wa-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(77,214,255,.45);
+  animation: none;
+}
+
+@keyframes pulseFloat {
+  0%, 100% { box-shadow: 0 8px 24px rgba(77,214,255,.35); }
+  50%       { box-shadow: 0 8px 32px rgba(77,214,255,.60); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  /* Header slim mobile */
+  .center-nav { display: none; }
+  .hamburger { display: flex; }
+  .phone { display: none; }
+  .header-single-row { padding: 0 16px; height: 52px; }
+  /* Hero logo */
+  .hero-logo-box { padding: 14px 16px; }
+  .hero-logo-img { max-width: 280px; }
+
+  .grid { grid-template-columns: 1fr 1fr; }
+  .cat-gallery { grid-template-columns: repeat(2, 1fr); }
+  .hero-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-right { margin-top: 18px; }
+  .hero-actions { justify-content: center; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr 1fr; }
+  .size-bar.s3, .size-bar.s4 span { font-size: 10px; }
+  .footer-inner { justify-content: center; text-align: center; }
+}
+
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .cat-gallery { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .testimonios-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .hero-v2 { margin: 8px; }
+  .hero-content { padding: 40px 16px; }
+}
+/* =============================================
+   HERO — Logo en recuadro grande + info abajo
+   ============================================= */
+
+/* hero-right ahora es columna */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+/* RECUADRO GRANDE DEL LOGO */
+.hero-logo-box {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(77,214,255,.30);
+  border-radius: 20px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 30px rgba(77,214,255,.12),
+    0 0 60px rgba(124,92,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+
+.hero-logo-box:hover {
+  border-color: rgba(77,214,255,.55);
+  box-shadow:
+    0 0 45px rgba(77,214,255,.22),
+    0 0 80px rgba(124,92,255,.14),
+    inset 0 1px 0 rgba(255,255,255,.15);
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  display: block;
+  /* PNG con fondo transparente — glow neón */
+  filter:
+    drop-shadow(0 0 8px rgba(77,214,255,.8))
+    drop-shadow(0 0 20px rgba(168,85,247,.6))
+    drop-shadow(0 0 40px rgba(77,214,255,.35));
+  transition: filter .3s ease, transform .3s ease;
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.02);
+  filter:
+    drop-shadow(0 0 12px rgba(77,214,255,1))
+    drop-shadow(0 0 28px rgba(168,85,247,.85))
+    drop-shadow(0 0 55px rgba(77,214,255,.5));
+}
+
+/* RECUADRO INFO (abajo del logo) — más compacto */
+.hero-box-right {
+  width: 100%;
+}
+

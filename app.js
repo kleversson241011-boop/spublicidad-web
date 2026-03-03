@@ -193,7 +193,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/marvel-dc/marvel14.jpg" }
   ],
   "dibujos": [
-    { src: "imagenes/catalogo/dibujos/d1.png" },
+    { src: "imagenes/catalogo/dibujos/d1.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu1.jpg" },
     { src: "imagenes/catalogo/dibujos/dibu2.jpg" },
@@ -335,6 +335,7 @@ window.addEventListener("load", setupCatalogTabs);
 })();
 
 // v1772500753
+
 
 
 

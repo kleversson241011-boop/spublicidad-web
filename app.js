@@ -116,7 +116,6 @@ function setupActiveMenu() {
       setActive(visible.target.id);
     }
 
-    // Activar / desactivar fondo especial en sección Tamaño
     const secTam = document.getElementById("tamano");
     if (secTam) {
       secTam.classList.toggle("section-visible", visible?.target?.id === "tamano");
@@ -144,7 +143,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/deportes/cr7_3.jpg" },
     { src: "imagenes/catalogo/deportes/ronaldo.jpg" },
     { src: "imagenes/catalogo/deportes/legend.jpg" },
-     { src: "imagenes/catalogo/deportes/selec.jpg" }
+    { src: "imagenes/catalogo/deportes/selec.jpg" }
   ],
   "anime": [
     { src: "imagenes/catalogo/anime/anime1.jpg" },
@@ -158,7 +157,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/anime/anime9.jpg" },
     { src: "imagenes/catalogo/anime/anime10.jpg" },
     { src: "imagenes/catalogo/anime/anime11.jpg" },
-    { src: "imagenes/catalogo/anime/anime12.jpg" }, 
+    { src: "imagenes/catalogo/anime/anime12.jpg" },
   ],
   "videojuegos": [
     { src: "imagenes/catalogo/videojuegos/vid.jpg" },
@@ -223,7 +222,7 @@ const CATALOG = {
     { src: "imagenes/catalogo/naturaleza/nat2.jpg" },
     { src: "imagenes/catalogo/naturaleza/nat3.jpg" },
     { src: "imagenes/catalogo/naturaleza/nat4.jpg" },
-    { src: "imagenes/catalogo/naturaleza/nat5.jpg" },     
+    { src: "imagenes/catalogo/naturaleza/nat5.jpg" },
   ]
 };
 
@@ -242,29 +241,13 @@ function renderGallery(category) {
     return;
   }
 
-  gallery.innerHTML = items.map((it, idx) => `
+  gallery.innerHTML = items.map((it) => `
     <article class="cat-item">
       <div class="img-box">
         <img src="${it.src}" alt="Catálogo ${category}" loading="lazy">
       </div>
-      <div class="cat-cap">
-        <button class="btn primary" type="button" data-cat="${category}" data-idx="${idx}">
-          Cotizar
-        </button>
-      </div>
     </article>
   `).join("");
-
-  gallery.querySelectorAll("button[data-cat]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const cat = btn.getAttribute("data-cat");
-      const idx = Number(btn.getAttribute("data-idx")) + 1;
-
-      openWhatsApp(
-        `Hola, quiero cotizar un cuadro en placa de aluminio.\nCategoría: *${cat.toUpperCase()}*.\nModelo: *${idx}*.\n¿Me confirmas precios por tamaño y tiempos de entrega en Quito?`
-      );
-    });
-  });
 
   adjustMainOffset();
 }
@@ -285,21 +268,6 @@ function setupCatalogTabs() {
 }
 
 window.addEventListener("load", setupCatalogTabs);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ===== HAMBURGUESA MENÚ MÓVIL =====
@@ -333,9 +301,3 @@ window.addEventListener("load", setupCatalogTabs);
     });
   }
 })();
-
-// v1772500753
-
-
-
-

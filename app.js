@@ -271,6 +271,22 @@ function setupCatalogTabs() {
 
 window.addEventListener("load", setupCatalogTabs);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ===== HAMBURGUESA MENÚ MÓVIL =====
 (function setupHamburger() {
   const btn = document.getElementById("hamburger");
@@ -304,3 +320,4 @@ window.addEventListener("load", setupCatalogTabs);
 })();
 
 
+// v1772500753

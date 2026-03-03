@@ -20,6 +20,36 @@
   <!-- HEADER: UNA SOLA BARRA -->
   <header class="header header-v3">
     <div class="header-single-row">
+      <a href="#inicio" class="header-logo" aria-label="Ir al inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" height="38" aria-hidden="true">
+      <defs>
+        <linearGradient id="hdrG" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4dd6ff"/>
+          <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+        <linearGradient id="hdrGH" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#4dd6ff"/>
+          <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+      </defs>
+      <!-- Marco de aluminio (representa el producto) -->
+      <rect x="1.5" y="1.5" width="47" height="47" rx="9" fill="none" stroke="url(#hdrG)" stroke-width="2.5"/>
+      <rect x="8" y="8" width="34" height="34" rx="5" fill="url(#hdrG)" fill-opacity="0.07" stroke="url(#hdrG)" stroke-width="1"
+  stroke-opacity="0.4"/>
+      <!-- Arte dentro del marco: sol + montaña abstracta -->
+      <circle cx="16" cy="18" r="4" fill="#4dd6ff" fill-opacity="0.75"/>
+      <path d="M9 38 L18 23 L24 31 L31 19 L41 38 Z" fill="url(#hdrG)" fill-opacity="0.5"/>
+      <!-- Separador vertical -->
+      <line x1="60" y1="8" x2="60" y2="42" stroke="rgba(77,214,255,0.22)" stroke-width="1.2"/>
+      <!-- Letras SK -->
+      <text x="70" y="30" font-family="'Sora','Arial Black',Arial,sans-serif" font-weight="900" font-size="23" fill="white"
+  letter-spacing="1">SK</text>
+      <!-- Línea degradado -->
+      <rect x="70" y="34" width="122" height="1.5" rx="1" fill="url(#hdrGH)" opacity="0.55"/>
+      <!-- Subtítulo PUBLICIDAD -->
+      <text x="71" y="44" font-family="'Sora',Arial,sans-serif" font-weight="600" font-size="10" fill="#9fb0d0" letter-spacing="5">PUBLICIDAD</text>
+    </svg>
+  </a>
       <nav class="center-nav" aria-label="Navegación principal">
         <a class="nav-pill" href="#inicio" data-link="inicio">Inicio</a>
         <a class="nav-pill" href="#catalogo" data-link="catalogo">Catálogo</a>

@@ -318,3 +318,4 @@ window.addEventListener("load", setupCatalogTabs);
     });
   }
 })();
+
